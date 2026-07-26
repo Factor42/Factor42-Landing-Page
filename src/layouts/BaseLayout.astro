@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Override the auto-derived canonical URL if needed. */
+  canonical?: string;
+  ogType?: 'website' | 'article';
+  /** Render the shared site header. Set false for pages with bespoke chrome (index). */
+  header?: boolean;
+  /** Render the shared site footer. Set false for pages with bespoke chrome (index). */
+  footer?: boolean;
+}
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  header = true,
+  footer = true,
+} = Astro.props;
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const GA_ID = 'G-K8TRPJS012';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Analytics (site-wide) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    </script>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {header && <Header />}
+    <slot />
+    {footer && <Footer />}
+  </body>
+</html>

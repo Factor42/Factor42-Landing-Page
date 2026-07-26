@@ -1,0 +1,24 @@
+{
+  "name": "factor42-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "node scripts/gen-redirects.mjs && node scripts/build-email-templates.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.18.2",
+    "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "turndown": "^7.2.4"
+  }
+}

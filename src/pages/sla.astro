@@ -1,0 +1,11 @@
+---
+import { getEntry, render } from 'astro:content';
+import LegalLayout from '../layouts/LegalLayout.astro';
+
+const entry = await getEntry('legal', 'sla');
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<LegalLayout title={d.title} description={d.description} lastUpdated={d.lastUpdated}>
+  <Content />
+</LegalLayout>

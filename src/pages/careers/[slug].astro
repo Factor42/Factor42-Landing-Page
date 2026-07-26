@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const jobs = await getCollection('jobs', ({ data }) => !data.draft);
+  return jobs.map((job) => ({ params: { slug: job.id }, props: { job } }));
+}
+
+const deptLabels = {
+  'ad-ops': 'Ad Operations',
+  sales: 'Sales & Marketing',
+  engineering: 'Engineering & AI',
+  finance: 'Finance & Accounting',
+  people: 'People & Culture',
+  'client-success': 'Client Success',
+};
+
+const { job } = Astro.props;
+const d = job.data;
+const { Content } = await render(job);
+const mailto = `mailto:${d.applyEmail}?subject=${encodeURIComponent(`Application: ${d.title}`)}`;
+---
+<BaseLayout title={`${d.title} — Careers at Factor42`} description={`${d.title} · ${deptLabels[d.department]} · ${d.location}`}>
+  <main class="pt-24 pb-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <a href="/careers" class="text-sm text-slate-500 hover:text-gray-900 transition-colors">← All roles</a>
+
+      <div class="mt-6 mb-8">
+        <div class="flex items-center gap-2 mb-4 flex-wrap">
+          <span class="dept-badge" style="background:rgba(0,102,255,.1);color:#0066FF">{deptLabels[d.department]}</span>
+          <span class="text-xs text-slate-400">{d.type} · {d.location}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 font-display">{d.title}</h1>
+      </div>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <div class="mt-10 p-6 rounded-2xl text-center" style="background:rgba(0,102,255,.06);border:1px solid rgba(0,102,255,.15)">
+        <p class="text-sm font-semibold text-gray-800 mb-4">Interested in this role?</p>
+        <a href={mailto} class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white">Apply for this role →</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
