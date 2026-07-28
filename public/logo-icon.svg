@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img" aria-label="Factor42 icon">
+  <defs>
+    <linearGradient id="icon-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0052CC"/>
+      <stop offset="100%" stop-color="#00B4D8"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="80" height="80" rx="20" fill="url(#icon-grad)"/>
+  <rect x="0" y="0" width="80" height="38" rx="20" fill="white" fill-opacity="0.07"/>
+  <!-- Geometric F -->
+  <rect x="19" y="18" width="11" height="44" rx="3.5" fill="white"/>
+  <rect x="19" y="18" width="36" height="11" rx="3.5" fill="white"/>
+  <rect x="19" y="34" width="25" height="10" rx="3" fill="white"/>
+</svg>

@@ -1,0 +1,1405 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={"Library — Factor42 | Platform Guides, Metrics & Documentation"} description={"The Factor42 Library: in-depth platform guides, analytics metrics definitions, module walkthroughs, and reporting documentation for media companies and agencies using the Factor42 OMS."}>
+<!-- HEADER -->
+
+
+<main class="pt-20">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="grid-bg py-14 px-6 relative overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10 pointer-events-none" style="background:radial-gradient(circle,#0066FF,transparent 70%)"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="flex items-center gap-2 mb-4">
+        <a href="/" class="text-xs text-slate-400 hover:text-blue-600 transition-colors">Home</a>
+        <span class="text-slate-300">/</span>
+        <span class="text-xs text-blue-600 font-medium">Library</span>
+      </div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Factor42 Platform Library</p>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4 leading-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+        Platform <span class="gradient-text">Documentation</span> &amp; Guides
+      </h1>
+      <p class="text-slate-500 text-base sm:text-lg max-w-2xl mb-8 leading-relaxed">Everything you need to understand and operate the Factor42 OMS — from platform modules and workflow guides to analytics metrics definitions and DSP integration references.</p>
+      <!-- Search -->
+      <div class="relative max-w-xl">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+        <input id="lib-search" type="search" placeholder="Search guides, metrics, modules…" class="search-box" aria-label="Search library">
+      </div>
+      <!-- Stats strip -->
+      <div class="flex flex-wrap gap-6 mt-8">
+        <div class="flex items-center gap-2"><span class="text-lg font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">4</span><span class="text-xs text-slate-500">Categories</span></div>
+        <div class="flex items-center gap-2"><span class="text-lg font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">18</span><span class="text-xs text-slate-500">Topics</span></div>
+        <div class="flex items-center gap-2"><span class="text-lg font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">12+</span><span class="text-xs text-slate-500">Metrics Defined</span></div>
+        <div class="flex items-center gap-2"><span class="text-lg font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">5</span><span class="text-xs text-slate-500">DSP Integrations</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TOPIC INDEX ═══ -->
+  <section class="py-10 px-6 border-b" style="border-color:rgba(0,102,255,.08)">
+    <div class="max-w-6xl mx-auto">
+      <!-- Category filter pills -->
+      <div class="flex flex-wrap gap-2 mb-8" role="tablist" aria-label="Filter by category">
+        <button class="tag-pill active" data-cat="all" role="tab">All Topics</button>
+        <button class="tag-pill" data-cat="getting-started" role="tab">Getting Started</button>
+        <button class="tag-pill" data-cat="modules" role="tab">Platform Modules</button>
+        <button class="tag-pill" data-cat="analytics" role="tab">Reporting &amp; Analytics</button>
+        <button class="tag-pill" data-cat="integrations" role="tab">Integrations</button>
+      </div>
+      <!-- Topic cards grid -->
+      <div id="topics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Getting Started -->
+        <a href="#platform-overview" class="topic-card block no-underline" data-cat="getting-started" data-search="platform overview what is factor42 oms order management system">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#EEF2FF,#DBEAFE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M3 9h18M9 21V9"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1">Getting Started</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Platform Overview</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">What the Factor42 OMS is, how it's structured, and who it serves.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#user-roles" class="topic-card block no-underline" data-cat="getting-started" data-search="user roles permissions admin campaign manager approver viewer client">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><circle cx="12" cy="8" r="4"></circle><path d="M20 21a8 8 0 1 0-16 0"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(22,163,74,.1);color:#16A34A">Getting Started</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">User Roles &amp; Permissions</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Admin, Campaign Manager, Approver, Viewer, and Client role capabilities.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Platform Modules -->
+        <a href="#advertisers" class="topic-card block no-underline" data-cat="modules" data-search="advertisers clients brands creating managing advertiser profiles">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(234,88,12,.1);color:#EA580C">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Advertisers Module</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Creating and managing advertiser profiles, contacts, logos, and settings.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#insertion-orders" class="topic-card block no-underline" data-cat="modules" data-search="insertion order IO creation workflow draft pending approval active ended">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <div>
+              <span class="tag mb-1">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Insertion Orders (IOs)</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Creating IOs from scratch, via AI recommendation, or by duplicating existing orders.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#io-tactics" class="topic-card block no-underline" data-cat="modules" data-search="io tactics channels SEM social display CTV DOOH budget allocation monthly breakdown targeting">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(124,58,237,.1);color:#7C3AED">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">IO Tactics &amp; Channel Configuration</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Selecting channels, setting tactics, allocating budgets, and configuring targeting.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#io-approval" class="topic-card block no-underline" data-cat="modules" data-search="IO approval workflow approve reject request changes pending locked">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(22,163,74,.1);color:#16A34A">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">IO Approval Workflow</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Multi-role approval process, status transitions, and change request cycles.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#campaign-management" class="topic-card block no-underline" data-cat="modules" data-search="campaign management setup wizard DSP launch go live pending active paused">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <div>
+              <span class="tag mb-1">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Campaign Management</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Campaign wizard, setup fields, DSP selection, targeting, and going live.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#pacing" class="topic-card block no-underline" data-cat="modules" data-search="pacing monitoring delivery rate on track over-pacing under-pacing projected spend">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(234,88,12,.1);color:#EA580C">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Pacing &amp; Delivery Monitoring</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">How pacing is calculated, thresholds, channel summary cards, and alerts.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#comms" class="topic-card block no-underline" data-cat="modules" data-search="internal communications messaging IO comms chat team collaboration">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(124,58,237,.1);color:#7C3AED">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Internal Communications</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">IO-scoped team messaging, campaign-level threads, and role-based access.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#trafficking" class="topic-card block no-underline" data-cat="modules" data-search="trafficking ad trafficking task management intake tags QA live stages">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(225,29,72,.1);color:#E11D48">Platform Module</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Trafficking Task Management</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Task stages from intake to QA to live, and how trafficking tasks are created.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Reporting & Analytics -->
+        <a href="#reporting-overview" class="topic-card block no-underline" data-cat="analytics" data-search="reporting dashboard overview analytics performance KPI charts filters">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path><polyline points="7 10 10 13 13 10 16 13"></polyline></svg>
+            </div>
+            <div>
+              <span class="tag mb-1">Analytics</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Reporting Dashboard Overview</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Navigating the reporting page, selecting advertisers, campaigns, and date ranges.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#metrics-definitions" class="topic-card block no-underline" data-cat="analytics" data-search="metrics definitions impressions clicks CTR click-through rate CPC cost per click conversions ROAS return on ad spend universal glossary">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(217,119,6,.1);color:#D97706">Analytics</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Universal Metrics Glossary</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Platform-agnostic definitions for Impressions, CTR, ROAS, CPA, and more — applicable across all channels.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#pacing-metrics" class="topic-card block no-underline" data-cat="analytics" data-search="pacing metrics calculation formula projected spend on track over under threshold">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><path d="M12 22V12m0 0L8 16m4-4 4 4"></path><path d="M20 16.5A8 8 0 1 0 4 12"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(22,163,74,.1);color:#16A34A">Analytics</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Pacing Metrics &amp; Calculations</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">How pacing percentage and projected spend are computed, and what thresholds mean.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#ai-summaries" class="topic-card block no-underline" data-cat="analytics" data-search="AI performance summary Claude API intelligent brief automated analysis">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5c0 2.76-2.24 5-5 5s-5-2.24-5-5a5 5 0 0 1 5-5z"></path><path d="M15 14H9a7 7 0 0 0-7 7"></path><path d="M17 14l2 2 4-4"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(124,58,237,.1);color:#7C3AED">Analytics</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">AI Performance Summaries</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">How the AI summary feature works, what it analyzes, and how to interpret it.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#exports" class="topic-card block no-underline" data-cat="analytics" data-search="export reports CSV PDF download sharing dashboard client access">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(234,88,12,.1);color:#EA580C">Analytics</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Exporting &amp; Sharing Reports</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Export to CSV or PDF, and share a scoped reporting dashboard with clients.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Integrations -->
+        <a href="#dsp-integrations" class="topic-card block no-underline" data-cat="integrations" data-search="DSP integrations Google Ads Bing Microsoft Meta TikTok DV360 Amazon Reddit OTT CTV email marketing audio streaming DOOH platforms dimensions metrics fields">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1">Integrations</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Connected Platforms &amp; Fields</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Google Ads, Bing, Meta, TikTok, DV360, Amazon, Reddit, OTT, Email, Audio, DOOH — dimensions &amp; metrics for each.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#dsp-push" class="topic-card block no-underline" data-cat="integrations" data-search="DSP push campaign launch execution go live external ID OAuth authentication">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(22,163,74,.1);color:#16A34A">Integrations</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">DSP Push — Campaign Execution</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">Step-by-step walkthrough of how campaigns are pushed to DSPs and go live.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="#smart-channel-advisor" class="topic-card block no-underline" data-cat="integrations" data-search="smart channel advisor AI channel recommendation website URL industry analysis">
+          <div class="flex items-start gap-3">
+            <div class="icon-wrap" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </div>
+            <div>
+              <span class="tag mb-1" style="background:rgba(124,58,237,.1);color:#7C3AED">Integrations</span>
+              <h3 class="font-bold text-gray-900 text-sm mt-1" style="font-family:'Plus Jakarta Sans',sans-serif">Smart Channel Advisor</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-snug">AI-powered channel recommendations based on advertiser website and industry signals.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      <p id="no-topics" class="hidden text-slate-400 text-sm text-center py-8">No topics match your search. <a href="#" onclick="clearSearch()" class="text-blue-600 hover:underline">Clear search</a></p>
+    </div>
+  </section>
+
+  <!-- ═══ CONTENT BODY ═══ -->
+  <div class="max-w-6xl mx-auto px-6 py-12 flex gap-10 items-start">
+
+    <!-- Sticky Sidebar -->
+    <aside class="lib-sidebar hidden lg:block w-56 flex-shrink-0 sticky top-24 self-start" aria-label="Library navigation">
+      <div class="cat-label">Getting Started</div>
+      <a href="#platform-overview">Platform Overview</a>
+      <a href="#user-roles">User Roles &amp; Permissions</a>
+
+      <div class="cat-label">Platform Modules</div>
+      <a href="#advertisers">Advertisers</a>
+      <a href="#insertion-orders">Insertion Orders</a>
+      <a href="#io-tactics">IO Tactics &amp; Channels</a>
+      <a href="#io-approval">IO Approval Workflow</a>
+      <a href="#campaign-management">Campaign Management</a>
+      <a href="#pacing">Pacing &amp; Monitoring</a>
+      <a href="#comms">Internal Comms</a>
+      <a href="#trafficking">Trafficking Tasks</a>
+
+      <div class="cat-label">Reporting &amp; Analytics</div>
+      <a href="#reporting-overview">Reporting Overview</a>
+      <a href="#metrics-definitions">Metrics Definitions</a>
+      <a href="#pacing-metrics">Pacing Metrics</a>
+      <a href="#ai-summaries">AI Summaries</a>
+      <a href="#exports">Exports &amp; Sharing</a>
+
+      <div class="cat-label">Integrations</div>
+      <a href="#dsp-integrations">All Platforms</a>
+      <a href="#dsp-google" style="padding-left:1.25rem">Google Ads</a>
+      <a href="#dsp-bing" style="padding-left:1.25rem">Bing / Microsoft</a>
+      <a href="#dsp-meta" style="padding-left:1.25rem">Meta Ads</a>
+      <a href="#dsp-tiktok" style="padding-left:1.25rem">TikTok Ads</a>
+      <a href="#dsp-dv360" style="padding-left:1.25rem">DV360</a>
+      <a href="#dsp-amazon" style="padding-left:1.25rem">Amazon DSP</a>
+      <a href="#dsp-reddit" style="padding-left:1.25rem">Reddit Ads</a>
+      <a href="#dsp-ott" style="padding-left:1.25rem">OTT / CTV</a>
+      <a href="#dsp-email" style="padding-left:1.25rem">Email Marketing</a>
+      <a href="#dsp-audio" style="padding-left:1.25rem">Audio Streaming</a>
+      <a href="#dsp-dooh" style="padding-left:1.25rem">DOOH</a>
+      <a href="#dsp-push">DSP Push Process</a>
+      <a href="#smart-channel-advisor">Smart Channel Advisor</a>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 min-w-0">
+
+      <!-- ─── GETTING STARTED ─── -->
+      <div id="platform-overview" class="article-anchor lib-section">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="tag">Getting Started</span>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Platform Overview</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Factor42 OMS (Order Management System) is a purpose-built platform for digital advertising operations teams at media companies and agencies. It centralizes the full campaign lifecycle — from advertiser onboarding and insertion order creation through campaign setup, DSP push, pacing monitoring, and performance reporting — in a single, role-aware workspace.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3 mt-5">Core Platform Entities</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">Advertiser</p>
+            <p class="text-xs text-slate-500 leading-relaxed">A brand or client account. Holds name, industry, website URL, contact info, logo, and aggregated spend/budget data. Parent entity for all IOs and campaigns.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">Insertion Order (IO)</p>
+            <p class="text-xs text-slate-500 leading-relaxed">The primary planning and budget document. Contains flights, channels, tactics, budget allocation per tactic, and targeting fields. Follows an approval workflow before campaigns are created.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">Campaign</p>
+            <p class="text-xs text-slate-500 leading-relaxed">A single channel × tactic execution unit. Auto-created on IO approval. Tracks platform (DSP), spend, pacing, status, and live state. Pushed to external DSPs to go live.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">Tactic Configuration</p>
+            <p class="text-xs text-slate-500 leading-relaxed">The planning layer inside an IO. Stores selected channels, per-tactic budgets with monthly breakdowns, and targeting fields. Validated before submission for approval.</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-gray-900 mb-3 mt-5">Who Uses the Factor42 OMS?</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">The platform is designed for media companies and digital advertising agencies that manage multi-platform campaigns at scale. It is particularly suited for teams operating across Search (SEM), Social, Programmatic Display, Pre-roll, CTV, and DOOH channels simultaneously — where centralized IO management and cross-channel visibility eliminates the operational fragmentation typical of managing each platform independently.</p>
+      </div>
+
+      <!-- User Roles -->
+      <div id="user-roles" class="article-anchor lib-section">
+        <span class="tag">Getting Started</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">User Roles &amp; Permissions</h2>
+        <p class="text-slate-600 leading-relaxed mb-5">The Factor42 OMS uses a five-role permission model. Each role determines which pages are visible, which actions are available, and which data is accessible.</p>
+
+        <div class="overflow-x-auto mb-5">
+          <table class="w-full text-xs border-collapse">
+            <thead>
+              <tr style="background:rgba(0,102,255,.05)">
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Role</th>
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Creates IOs</th>
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Approves IOs</th>
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Manages Campaigns</th>
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Views Reporting</th>
+                <th class="text-left py-2.5 px-3 font-semibold text-gray-900 border-b" style="border-color:rgba(0,102,255,.12)">Admin Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b" style="border-color:rgba(0,102,255,.06)">
+                <td class="py-2.5 px-3"><span class="role-badge" style="background:rgba(0,102,255,.1);color:#0066FF">👑 Admin</span></td>
+                <td class="py-2.5 px-3 text-green-600 font-semibold">✓</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-green-600 font-semibold">✓</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+              </tr>
+              <tr class="border-b" style="border-color:rgba(0,102,255,.06)">
+                <td class="py-2.5 px-3"><span class="role-badge" style="background:rgba(124,58,237,.1);color:#7C3AED">🎯 Campaign Manager</span></td>
+                <td class="py-2.5 px-3 text-green-600 font-semibold">✓</td><td class="py-2.5 px-3 text-slate-400">—</td>
+                <td class="py-2.5 px-3 text-green-600 font-semibold">✓</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td>
+              </tr>
+              <tr class="border-b" style="border-color:rgba(0,102,255,.06)">
+                <td class="py-2.5 px-3"><span class="role-badge" style="background:rgba(22,163,74,.1);color:#16A34A">✅ Approver</span></td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td>
+              </tr>
+              <tr class="border-b" style="border-color:rgba(0,102,255,.06)">
+                <td class="py-2.5 px-3"><span class="role-badge" style="background:rgba(234,179,8,.1);color:#CA8A04">👁 Viewer</span></td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-slate-400">—</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-green-600 font-semibold">✓</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-3"><span class="role-badge" style="background:rgba(100,116,139,.1);color:#475569">🏢 Client</span></td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-slate-400">—</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td><td class="py-2.5 px-3 text-slate-500 text-xs">Own advertiser only</td>
+                <td class="py-2.5 px-3 text-slate-400">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Client Role — Special Behavior</p>
+          <p class="text-xs text-slate-600 leading-relaxed">When a Client logs in, the platform automatically locks the reporting view to their assigned advertiser and hides all other navigation. They can only access the Reporting page scoped to their own brand's data — no internal data, IOs, or campaigns from other advertisers are visible.</p>
+        </div>
+      </div>
+
+      <!-- ─── PLATFORM MODULES ─── -->
+      <div id="advertisers" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(234,88,12,.1);color:#EA580C">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Advertisers Module</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Advertisers module is the starting point for all work in the platform. Each advertiser represents a brand or client account. All insertion orders and campaigns are linked to an advertiser.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Creating an Advertiser</h3>
+        <div class="space-y-2 mb-5">
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">1</span><p class="text-sm text-slate-600">Click <strong>+ New Advertiser</strong> on the Advertisers page (requires Campaign Manager or Admin role)</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">2</span><p class="text-sm text-slate-600">Fill in <strong>Basic Info</strong>: Name (required), Industry, Advertiser URL, External ID</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">3</span><p class="text-sm text-slate-600">Upload a <strong>Logo</strong> via drag-and-drop or file picker</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">4</span><p class="text-sm text-slate-600">Add a <strong>Primary Contact</strong>: name, role, email, and phone</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">5</span><p class="text-sm text-slate-600">Click <strong>Save</strong> — the advertiser is immediately available in all IO dropdowns, Campaign Management filters, and the Dashboard</p></div>
+        </div>
+
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Important</p>
+          <p class="text-xs text-slate-600 leading-relaxed">New advertisers are always created with <strong>Active</strong> status. Budget, spend, and channel data are computed aggregates — they update automatically as IOs and campaigns are created under the advertiser. The advertiser URL is used by the Smart Channel Advisor to pre-populate AI recommendations when creating new IOs.</p>
+        </div>
+      </div>
+
+      <div id="insertion-orders" class="article-anchor lib-section">
+        <span class="tag">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Insertion Orders (IOs)</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">An Insertion Order is the master planning document for a campaign engagement. It defines the advertiser, flight dates, total budget, and all channel tactics. IOs follow a structured lifecycle from draft through approval before campaigns are created.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">IO Status Lifecycle</h3>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#F1F5F9;color:#475569">Draft</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#EEF2FF;color:#6366F1">Pending Approval</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#DCFCE7;color:#16A34A">Active</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#F1F5F9;color:#64748b">Ended</span>
+        </div>
+        <ul class="text-sm text-slate-600 space-y-1.5 mb-5 list-disc list-inside">
+          <li><strong>Draft</strong> — Editable. Tactics and budget can be modified freely. Can be saved any time.</li>
+          <li><strong>Pending Approval</strong> — Locked. No edits allowed. Awaiting Approver/Admin action.</li>
+          <li><strong>Active</strong> — Approved. Campaigns auto-created. Budget tracked against spend.</li>
+          <li><strong>Ended</strong> — Computed at display time when end date has passed. No stored status change.</li>
+          <li><strong>Over-pacing</strong> — Computed when spend/budget exceeds 105%. Shown as an alert state.</li>
+        </ul>
+
+        <h3 class="font-bold text-gray-900 mb-3">Three Ways to Create an IO</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">✨ Smart Channel Advisor</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Enter the advertiser's website URL. The AI analyzes the site, detects industry and content signals, and recommends channels with reasoning and tactic suggestions.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">📄 Start from Scratch</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Fill in a blank IO form — advertiser, name, dates, budget, and notes. Channels and tactics are configured in the next step.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-1">⧉ Duplicate Existing IO</p>
+            <p class="text-xs text-slate-500 leading-relaxed">Select any existing IO to copy its channels, tactics, budgets, and targeting fields into a new IO. The name gets "(Copy)" appended.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="io-tactics" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">IO Tactics &amp; Channel Configuration</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Tactics tab inside an IO is where you configure which advertising channels to use, select specific tactics within each channel, allocate budget per tactic with monthly breakdowns, and set targeting parameters. Budget must be fully allocated before submission.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Supported Channels</h3>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="tag">SEM / Search</span>
+          <span class="tag">Social</span>
+          <span class="tag">Display</span>
+          <span class="tag">Pre-roll</span>
+          <span class="tag">CTV</span>
+          <span class="tag">DOOH</span>
+        </div>
+
+        <h3 class="font-bold text-gray-900 mb-3">Budget Validation Rules</h3>
+        <div class="space-y-2">
+          <div class="flex items-center gap-3 p-3 rounded-xl text-sm" style="background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.15)">
+            <span class="text-green-600 font-bold text-base">✓</span>
+            <div><strong class="text-gray-900">Fully Allocated</strong> — Sum of all tactic budgets exactly equals the IO total budget. Submit for Approval button is enabled.</div>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl text-sm" style="background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.15)">
+            <span class="text-amber-600 font-bold text-base">⚠</span>
+            <div><strong class="text-gray-900">Under-allocated</strong> — Remaining budget exists. Submit is disabled until all budget is assigned.</div>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl text-sm" style="background:rgba(225,29,72,.06);border:1px solid rgba(225,29,72,.15)">
+            <span class="text-red-600 font-bold text-base">✗</span>
+            <div><strong class="text-gray-900">Over-allocated</strong> — Tactic budgets exceed the IO total. Submit is disabled. Reduce a tactic budget to resolve.</div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mt-3">Note: Saving as Draft is always available regardless of budget allocation status. Only submission for approval requires a balanced budget.</p>
+      </div>
+
+      <div id="io-approval" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(22,163,74,.1);color:#16A34A">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">IO Approval Workflow</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">After a Campaign Manager submits an IO for approval, it enters a locked pending state. An Approver or Admin reviews the IO details and can either approve it (which triggers campaign auto-creation) or send it back with required changes.</p>
+
+        <div class="space-y-3 mb-5">
+          <div class="flex gap-3 items-start">
+            <span class="step-num mt-0.5 flex-shrink-0">1</span>
+            <div class="text-sm text-slate-600"><strong class="text-gray-900">Campaign Manager submits</strong> — IO status changes to <em>Pending Approval</em>. The IO is now locked; no edits are possible.</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="step-num mt-0.5 flex-shrink-0">2</span>
+            <div class="text-sm text-slate-600"><strong class="text-gray-900">Approver reviews</strong> — Opens the IO and sees a purple pending banner with the full tactic summary and an optional note field.</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="step-num mt-0.5 flex-shrink-0">3A</span>
+            <div class="text-sm text-slate-600"><strong class="text-gray-900">Approved</strong> — IO status becomes Active. Campaigns are auto-created (one per tactic × channel). All campaigns start with status <em>Pending</em>.</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="step-num mt-0.5 flex-shrink-0">3B</span>
+            <div class="text-sm text-slate-600"><strong class="text-gray-900">Changes Requested</strong> — IO returns to Draft status with the approver's note visible. The Campaign Manager edits the IO and re-submits. The cycle repeats until approved.</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Campaign Auto-Creation on Approval</p>
+          <p class="text-xs text-slate-600 leading-relaxed">When an IO is approved, the platform automatically creates one campaign per tactic-channel combination. For example, an IO with 3 tactics (SEM Brand Search, SEM Shopping, Social Retargeting) generates 3 campaigns, each inheriting the tactic's budget, flight dates, and targeting settings from the IO's budget map.</p>
+        </div>
+      </div>
+
+      <div id="campaign-management" class="article-anchor lib-section">
+        <span class="tag">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Campaign Management</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Campaign Management module is where campaigns are configured and launched. Campaigns can be created manually via the Campaign Wizard or set up from auto-created pending campaigns generated on IO approval.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Campaign Status Flow</h3>
+        <div class="flex flex-wrap gap-2 mb-5">
+          <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#EEF2FF;color:#6366F1">Pending</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#DBEAFE;color:#2563EB">Active</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#DCFCE7;color:#16A34A">Live</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" class="mt-1.5"><path d="m9 18 6-6-6-6"></path></svg>
+          <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold" style="background:#F1F5F9;color:#64748b">Completed</span>
+        </div>
+
+        <h3 class="font-bold text-gray-900 mb-3">Campaign Wizard Fields</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Campaign Name</p><p class="text-xs text-slate-500">Auto-generated from Advertiser + Tactic + IO number. Editable.</p></div>
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Channel &amp; Tactic</p><p class="text-xs text-slate-500">Select the channel; the first tactic auto-applies. Targeting fields update accordingly.</p></div>
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Campaign Objective</p><p class="text-xs text-slate-500">Awareness, Traffic, Conversions, Lead Generation, or App Installs.</p></div>
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Platform (DSP)</p><p class="text-xs text-slate-500">Auto-suggested per channel. First DSP is pre-selected.</p></div>
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Budget &amp; Flight Dates</p><p class="text-xs text-slate-500">Pre-filled from IO tactic budget map. Editable.</p></div>
+          <div class="metric-card"><p class="font-semibold text-xs text-gray-900 mb-1">Targeting</p><p class="text-xs text-slate-500">Pre-filled from IO's field map. Includes geo, device, audience, bid strategy, and more — fields vary by tactic.</p></div>
+        </div>
+      </div>
+
+      <div id="pacing" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(234,88,12,.1);color:#EA580C">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Pacing &amp; Delivery Monitoring</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Pacing page gives a real-time view of how campaigns are delivering relative to their budgets. It surfaces at-risk campaigns early so teams can take corrective action before significant under-delivery or overspend occurs.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Pacing Status Thresholds</h3>
+        <div class="space-y-3 mb-5">
+          <div class="metric-card flex items-center gap-4">
+            <div class="pacing-bar w-24 flex-shrink-0"><div class="pacing-fill bg-red-500" style="width:110%"></div></div>
+            <div><p class="text-sm font-semibold text-red-600">Over-pacing (&gt;105%)</p><p class="text-xs text-slate-500">Spend is ahead of plan. Action: reduce daily budget or pause low-priority line items.</p></div>
+          </div>
+          <div class="metric-card flex items-center gap-4">
+            <div class="pacing-bar w-24 flex-shrink-0"><div class="pacing-fill bg-green-500" style="width:92%"></div></div>
+            <div><p class="text-sm font-semibold text-green-600">On Track (90–105%)</p><p class="text-xs text-slate-500">Delivery is within the healthy band. No action required.</p></div>
+          </div>
+          <div class="metric-card flex items-center gap-4">
+            <div class="pacing-bar w-24 flex-shrink-0"><div class="pacing-fill bg-green-400" style="width:83%"></div></div>
+            <div><p class="text-sm font-semibold text-green-500">Slightly Under (80–90%)</p><p class="text-xs text-slate-500">Monitor closely. Delivery is slightly below pace but within acceptable range.</p></div>
+          </div>
+          <div class="metric-card flex items-center gap-4">
+            <div class="pacing-bar w-24 flex-shrink-0"><div class="pacing-fill bg-amber-500" style="width:65%"></div></div>
+            <div><p class="text-sm font-semibold text-amber-600">Under-pacing (&lt;80%)</p><p class="text-xs text-slate-500">Significant delivery shortfall. Action: increase bids, expand targeting, check creative approval status.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="comms" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Internal Communications</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Comms module provides an IO-scoped internal messaging workspace. Teams can discuss any IO or individual campaign in context, with role-based message attribution and optional campaign-level filtering.</p>
+        <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside mb-4">
+          <li>Messages are always scoped to an Insertion Order</li>
+          <li>Optional campaign-level filter narrows the thread to one campaign</li>
+          <li>Role-based avatar colors provide quick visual identification (Admin/Approver = green, Campaign Manager = purple, Viewer = amber)</li>
+          <li>Only <code class="text-xs bg-slate-100 px-1 rounded">internal</code> type messages are shown — client-facing messaging is a separate reserved type</li>
+          <li>Sending a message requires at minimum a Campaign Manager role; Viewers cannot send</li>
+        </ul>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Production Note</p>
+          <p class="text-xs text-slate-600">In the current platform, messages exist in application state per session. In the production backend, messages will be persisted per IO with timestamps, indexed by io_id and campaign_id, with full audit trail support.</p>
+        </div>
+      </div>
+
+      <div id="trafficking" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(225,29,72,.1);color:#E11D48">Platform Module</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Trafficking Task Management</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">When a campaign goes live, a trafficking task is automatically created in the Trafficking module. Tasks track the end-to-end ad trafficking process from initial intake through QA verification and final live confirmation.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Trafficking Task Stages</h3>
+        <div class="flex items-center gap-2 flex-wrap mb-5">
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#0066FF,#00B4D8)">1</div>
+            <span class="text-xs text-slate-600 font-medium">Intake</span>
+          </div>
+          <div class="h-px flex-1 min-w-6" style="background:rgba(0,102,255,.2)"></div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#7C3AED,#6366F1)">2</div>
+            <span class="text-xs text-slate-600 font-medium">Tags</span>
+          </div>
+          <div class="h-px flex-1 min-w-6" style="background:rgba(0,102,255,.2)"></div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#EA580C,#F59E0B)">3</div>
+            <span class="text-xs text-slate-600 font-medium">QA</span>
+          </div>
+          <div class="h-px flex-1 min-w-6" style="background:rgba(0,102,255,.2)"></div>
+          <div class="flex flex-col items-center gap-1">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#16A34A,#22C55E)">4</div>
+            <span class="text-xs text-slate-600 font-medium">Live</span>
+          </div>
+        </div>
+        <ul class="text-sm text-slate-600 space-y-1.5 list-disc list-inside">
+          <li><strong>Intake</strong> — Task created automatically when campaign goes live. Creative assets received and logged.</li>
+          <li><strong>Tags</strong> — Tracking tags generated and implemented on the creative assets.</li>
+          <li><strong>QA</strong> — Tags implemented and reviewed. QA checklist completed.</li>
+          <li><strong>Live</strong> — QA passed. Campaign confirmed live on the DSP. Task closed.</li>
+        </ul>
+      </div>
+
+      <!-- ─── REPORTING & ANALYTICS ─── -->
+      <div id="reporting-overview" class="article-anchor lib-section">
+        <span class="tag">Reporting &amp; Analytics</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Reporting Dashboard Overview</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Reporting page provides a unified view of campaign performance across all advertisers, products, and channels. It supports date-range filtering, AI-generated performance summaries, data exports, and shareable client dashboards.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Dashboard Sections</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">KPI Cards</p><p class="text-xs text-slate-500">Top-level performance metrics per product: Impressions, Clicks, CTR, CPC, Conversions, and ROAS — with period-over-period comparison.</p></div>
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">Trend Chart</p><p class="text-xs text-slate-500">13-day performance trend line with gradient SVG sparkline. Shows daily delivery trajectory for the selected scope.</p></div>
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">Device Breakdown</p><p class="text-xs text-slate-500">Performance split by Desktop, Mobile, Tablet, and Connected TV — showing how budget and delivery varies across devices.</p></div>
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">Geography Breakdown</p><p class="text-xs text-slate-500">Delivery and performance by US state and region. Helps identify geo-level pacing imbalances.</p></div>
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">Campaign Breakdown</p><p class="text-xs text-slate-500">Individual campaign performance within the selected advertiser, showing spend and key metrics per campaign.</p></div>
+          <div class="metric-card"><p class="font-semibold text-sm text-gray-900 mb-1">Date Range Filters</p><p class="text-xs text-slate-500">Pre-set quarters (Q1–Q4) or custom date range. Scope applies across all panels simultaneously.</p></div>
+        </div>
+      </div>
+
+      <div id="metrics-definitions" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(217,119,6,.1);color:#D97706">Reporting &amp; Analytics</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Universal Metrics Glossary</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">Platform-agnostic definitions for the core KPIs that appear across all channels in Factor42 Reporting. For platform-specific field names and definitions, see each <a href="#dsp-integrations" class="text-blue-600 hover:underline">Connected Platform</a> below.</p>
+
+        <div class="space-y-4">
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Impressions</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The total number of times an ad was displayed to a user. One impression is counted each time an ad creative is rendered in a browser or app, regardless of whether the user interacted with it.</p>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Count &nbsp;·&nbsp; <strong>Higher = more reach</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Reach</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Clicks</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The total number of times a user clicked on an ad creative. Clicks represent user intent — a click signals the user engaged with the ad and navigated to the destination URL.</p>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Count &nbsp;·&nbsp; <strong>Higher = more engagement</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Engagement</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">CTR — Click-Through Rate</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The percentage of impressions that resulted in a click. Measures ad relevance and creative effectiveness relative to how many people saw it.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">CTR = (Clicks ÷ Impressions) × 100</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Percentage (%) &nbsp;·&nbsp; <strong>Industry average:</strong> 0.05%–0.1% (Display); 1–3% (Search)</p>
+              </div>
+              <span class="tag flex-shrink-0">Engagement</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">CPC — Cost Per Click</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The average cost paid for each user click. A core efficiency metric for performance campaigns where clicks indicate purchase intent or lead generation activity.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">CPC = Total Spend ÷ Total Clicks</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> USD ($) &nbsp;·&nbsp; <strong>Lower = more cost-efficient</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Efficiency</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">CPM — Cost Per Thousand Impressions</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The cost to deliver 1,000 ad impressions. The standard buying and measurement unit for awareness campaigns where reach is the primary objective, not clicks or conversions.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">CPM = (Total Spend ÷ Impressions) × 1,000</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> USD per 1,000 impressions &nbsp;·&nbsp; <strong>Lower = more cost-efficient reach</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Efficiency</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Conversions</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The number of desired actions completed by users after interacting with an ad. A conversion is defined per campaign objective — it may be a purchase, form submission, phone call, app install, or page visit depending on the advertiser's goals.</p>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Count &nbsp;·&nbsp; <strong>Higher = more business outcomes</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Outcomes</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">ROAS — Return on Ad Spend</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The revenue generated for every dollar spent on advertising. The primary efficiency metric for e-commerce and direct-response campaigns. A ROAS of 4.0× means $4 in revenue was generated for every $1 spent.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">ROAS = Revenue Generated ÷ Ad Spend</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Ratio (×) &nbsp;·&nbsp; <strong>Benchmark:</strong> 4× is generally considered the minimum viable threshold for most industries</p>
+              </div>
+              <span class="tag flex-shrink-0">Outcomes</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">CPA — Cost Per Acquisition</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The average cost to generate one conversion (acquisition). Used to evaluate the efficiency of conversion-focused campaigns. Lower CPA with sustained conversion volume indicates a well-optimized campaign.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">CPA = Total Spend ÷ Conversions</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> USD ($) &nbsp;·&nbsp; <strong>Lower = more cost-efficient acquisition</strong></p>
+              </div>
+              <span class="tag flex-shrink-0">Outcomes</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">View-Through Rate (VTR)</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The percentage of video ad impressions that were watched to completion (or a defined threshold such as 25%, 50%, 75%, or 100%). Relevant for pre-roll and CTV campaigns where completion rate signals message delivery.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">VTR = (Completed Views ÷ Impressions) × 100</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Percentage (%) &nbsp;·&nbsp; <strong>Relevant for:</strong> Pre-roll, CTV</p>
+              </div>
+              <span class="tag flex-shrink-0">Video</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Viewability Rate</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The percentage of impressions that met the MRC (Media Rating Council) viewability standard: at least 50% of the ad's pixels were in-view for at least 1 continuous second (display) or 2 seconds (video).</p>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Percentage (%) &nbsp;·&nbsp; <strong>MRC Standard:</strong> ≥70% is considered good for display</p>
+              </div>
+              <span class="tag flex-shrink-0">Quality</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Frequency</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The average number of times a unique user was shown an ad within a given period. Frequency management prevents ad fatigue and controls wasted impressions on already-reached users.</p>
+                <div class="mt-2 p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">Frequency = Impressions ÷ Unique Reach</div>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> Ratio &nbsp;·&nbsp; <strong>Optimal range:</strong> 3–7× depending on campaign objective</p>
+              </div>
+              <span class="tag flex-shrink-0">Reach</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Spend</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">The total media budget consumed in the reporting period. In Factor42 Reporting, Spend is tracked per campaign and rolled up to the advertiser and IO levels. It is compared against Budget to calculate pacing status.</p>
+                <p class="text-xs text-slate-400 mt-2"><strong>Unit:</strong> USD ($) &nbsp;·&nbsp; <strong>Also tracked as:</strong> Spent (actuals), Budget (planned)</p>
+              </div>
+              <span class="tag flex-shrink-0">Financial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="pacing-metrics" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(22,163,74,.1);color:#16A34A">Reporting &amp; Analytics</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Pacing Metrics &amp; Calculations</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">Pacing metrics are computed in real time from campaign spend and budget data. They tell you whether a campaign is on track to spend its full budget over the planned flight period.</p>
+
+        <div class="space-y-4">
+          <div class="metric-card">
+            <h3 class="font-bold text-gray-900 mb-1">Pacing Percentage</h3>
+            <p class="text-sm text-slate-600 mb-2">What proportion of the budget has been spent so far. Calculated at render time, not stored.</p>
+            <div class="p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">Pacing % = round(Spent ÷ Budget × 100)</div>
+          </div>
+          <div class="metric-card">
+            <h3 class="font-bold text-gray-900 mb-1">Projected Spend</h3>
+            <p class="text-sm text-slate-600 mb-2">An extrapolation of end-of-flight spend based on the current pacing rate. Helps identify over or under-delivery risks before they materialize.</p>
+            <div class="p-2 rounded-lg text-xs font-mono" style="background:rgba(0,102,255,.06)">Projected = round(Budget × Pacing% ÷ 91)</div>
+            <p class="text-xs text-slate-400 mt-2">Note: 91 represents the typical day count used as a reference period. In production, this formula is adjusted to actual flight days elapsed vs. total flight days.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="ai-summaries" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Reporting &amp; Analytics</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">AI Performance Summaries</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The AI Summary feature in the Reporting module generates an intelligent ~400-word performance brief for the selected advertiser, campaign, or product scope. It is powered by the Claude API and streamed in real time to the UI.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">How It Works</h3>
+        <div class="space-y-2 mb-4">
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">1</span><p class="text-sm text-slate-600">Select your reporting scope (advertiser, campaign, or date range) in the Reporting dashboard.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">2</span><p class="text-sm text-slate-600">Click <strong>AI Summary</strong>. The platform constructs a prompt with scoped performance metrics, flight dates, and KPIs.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">3</span><p class="text-sm text-slate-600">The Claude API processes the prompt and streams a performance brief directly into a modal overlay.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">4</span><p class="text-sm text-slate-600">The brief covers delivery performance, efficiency analysis, standout metrics, and actionable optimization recommendations.</p></div>
+        </div>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Available to all roles</p>
+          <p class="text-xs text-slate-600">AI Summaries are available to Admin, Campaign Manager, Approver, Viewer, and Client roles. Client users see the AI Summary scoped exclusively to their assigned advertiser.</p>
+        </div>
+      </div>
+
+      <div id="exports" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(234,88,12,.1);color:#EA580C">Reporting &amp; Analytics</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Exporting &amp; Sharing Reports</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-2">CSV Export</p>
+            <p class="text-xs text-slate-600 leading-relaxed">Exports a tab-separated values file containing: Product, Impressions, Clicks, CTR, CPC, and date range. Downloaded as <code class="bg-slate-100 px-1 rounded">report.csv</code>. Suitable for further analysis in Excel or Google Sheets.</p>
+          </div>
+          <div class="metric-card">
+            <p class="font-semibold text-sm text-gray-900 mb-2">PDF Export</p>
+            <p class="text-xs text-slate-600 leading-relaxed">Captures each report section as a high-fidelity image using html2canvas and packages them into a multi-page PDF via jsPDF. Downloaded as <code class="bg-slate-100 px-1 rounded">report.pdf</code>. Suitable for client presentations.</p>
+          </div>
+        </div>
+
+        <h3 class="font-bold text-gray-900 mb-3">Sharing a Dashboard with a Client</h3>
+        <div class="space-y-2">
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">1</span><p class="text-sm text-slate-600">Select an advertiser in the Reporting page. The Share button becomes available.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">2</span><p class="text-sm text-slate-600">Click <strong>Share Dashboard</strong>. A unique shareable link is generated (Base64-encoded advertiser token).</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">3</span><p class="text-sm text-slate-600">Alternatively, send an email invite — this adds the client to the advertiser's shared list and allows them to log in with a Client role locked to that advertiser's data.</p></div>
+        </div>
+      </div>
+
+      <!-- ─── INTEGRATIONS ─── -->
+      <div id="dsp-integrations" class="article-anchor lib-section">
+        <span class="tag">Integrations</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Connected Platforms &amp; Field Definitions</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">Factor42 supports campaign execution across 11 advertising channels. Each platform section below lists the key <strong>Dimensions</strong> (ways to slice data) and <strong>Metrics</strong> (measured values) available in that platform's reporting — with definitions for every field.</p>
+        <!-- Quick jump -->
+        <div class="flex flex-wrap gap-2 mb-6 p-4 rounded-xl" style="background:rgba(0,102,255,.04);border:1px solid rgba(0,102,255,.1)">
+          <span class="text-xs font-semibold text-slate-400 w-full mb-1">Jump to platform:</span>
+          <a href="#dsp-google" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Google Ads</a>
+          <a href="#dsp-bing" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Bing</a>
+          <a href="#dsp-meta" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Meta Ads</a>
+          <a href="#dsp-tiktok" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">TikTok</a>
+          <a href="#dsp-dv360" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">DV360</a>
+          <a href="#dsp-amazon" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Amazon DSP</a>
+          <a href="#dsp-reddit" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Reddit</a>
+          <a href="#dsp-ott" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">OTT / CTV</a>
+          <a href="#dsp-email" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Email</a>
+          <a href="#dsp-audio" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">Audio</a>
+          <a href="#dsp-dooh" class="text-xs font-semibold px-3 py-1 rounded-full transition-colors hover:bg-blue-600 hover:text-white" style="background:rgba(0,102,255,.1);color:#0066FF">DOOH</a>
+        </div>
+      </div>
+
+      <!-- ── GOOGLE ADS ── -->
+      <div id="dsp-google" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></div>
+          <div><span class="tag" style="background:rgba(0,102,255,.08);color:#0066FF">Search · SEM</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Google Ads</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Google Ads is the primary platform for search intent targeting. Ads appear on Google Search, Google Display Network, YouTube, Gmail, and partner sites. Best for keyword-driven campaigns, Shopping, Performance Max, and demand generation.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">The top-level container sharing a budget, objective, and targeting strategy. All ad groups and keywords roll up to the campaign level.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Group</p><p class="text-xs text-slate-500 mt-0.5">A sub-unit within a campaign grouping related keywords and ads together. Ad groups share bids and targeting settings.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Keyword</p><p class="text-xs text-slate-500 mt-0.5">The search term or phrase that triggers ad delivery when a user's query matches. Keywords have match types that control how strictly the query must match.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Match Type</p><p class="text-xs text-slate-500 mt-0.5">Controls query matching behavior. <strong>Broad</strong> — widest reach; <strong>Phrase</strong> — query must contain the keyword phrase; <strong>Exact</strong> — query must match the keyword precisely.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device</p><p class="text-xs text-slate-500 mt-0.5">The device type on which the ad was shown: Desktop, Mobile, or Tablet. Used to analyze performance differences and apply bid adjustments.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Geography</p><p class="text-xs text-slate-500 mt-0.5">Location of the user who was shown the ad, broken down by Country, State, City, or DMA. Enables geo-level bid adjustments.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Format</p><p class="text-xs text-slate-500 mt-0.5">The creative type served: Responsive Search Ad, Performance Max, Shopping, Display, Video (YouTube), or Demand Gen.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">An impression in Google Ads represents a single instance of your ad being displayed and potentially seen by a user — whether on a search results page, a Display Network site, or YouTube.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Clicks</p><p class="text-xs text-slate-500 mt-0.5">The number of times a user clicked your ad. In Search campaigns, a click routes users to your landing page or calls a phone number.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CTR (Click-Through Rate)</p><p class="text-xs text-slate-500 mt-0.5">Clicks ÷ Impressions. Measures how often people click your ad after seeing it. Google Search average: 2–5%; Display: 0.05–0.1%.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Avg. CPC (Cost Per Click)</p><p class="text-xs text-slate-500 mt-0.5">Total cost ÷ Total clicks. The average amount you paid each time a user clicked your ad. Influenced by Quality Score, bid, and auction competition.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Cost</p><p class="text-xs text-slate-500 mt-0.5">Total media spend charged by Google in the selected date range across all clicks and interactions.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions</p><p class="text-xs text-slate-500 mt-0.5">Actions completed after clicking your ad — purchases, form submissions, calls, or app installs — tracked via Google Tag or imported goals from GA4.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversion Rate</p><p class="text-xs text-slate-500 mt-0.5">Conversions ÷ Clicks. The percentage of ad clicks that result in a tracked conversion action.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPA (Cost Per Acquisition)</p><p class="text-xs text-slate-500 mt-0.5">Cost ÷ Conversions. Average spend required to generate one conversion. A core Target CPA bidding metric.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">ROAS (Return on Ad Spend)</p><p class="text-xs text-slate-500 mt-0.5">Conversion value ÷ Cost. Revenue generated per dollar of ad spend. Used with Target ROAS Smart Bidding to optimize toward revenue goals.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impression Share</p><p class="text-xs text-slate-500 mt-0.5">Your impressions ÷ total eligible impressions. Shows how often your ad appears compared to the maximum possible given your budget and targeting.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Search Lost IS (Budget)</p><p class="text-xs text-slate-500 mt-0.5">Percentage of eligible impressions lost because your daily budget ran out. Reducing this requires increasing budget or narrowing targeting.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Search Lost IS (Rank)</p><p class="text-xs text-slate-500 mt-0.5">Percentage of eligible impressions lost due to low Ad Rank (caused by a low bid or poor Quality Score). Improving QS or raising bids reduces this.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Quality Score</p><p class="text-xs text-slate-500 mt-0.5">A 1–10 rating of your keyword's expected CTR, ad relevance, and landing page experience. Higher scores lower your CPC and improve ad position.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">View-Through Conversions</p><p class="text-xs text-slate-500 mt-0.5">Conversions from users who saw (but did not click) a Display ad, then completed a conversion within the attribution window. Helps measure the assisted impact of Display campaigns.</p></div>
+        </div>
+      </div>
+
+      <!-- ── BING / MICROSOFT ADVERTISING ── -->
+      <div id="dsp-bing" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#DBEAFE,#BFDBFE)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></div>
+          <div><span class="tag" style="background:rgba(37,99,235,.1);color:#2563EB">Search · SEM</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Bing / Microsoft Advertising</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Microsoft Advertising (formerly Bing Ads) delivers search ads across Bing, Yahoo, AOL, and MSN partner sites. Unique advantage: LinkedIn Profile Targeting allows targeting by company, industry, and job function — making it particularly powerful for B2B campaigns.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">Top-level budget and targeting container across the Microsoft Search Network including Bing, Yahoo, and MSN partner inventory.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Group</p><p class="text-xs text-slate-500 mt-0.5">Groups of related keywords and ads sharing bid settings within a campaign.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Keyword &amp; Match Type</p><p class="text-xs text-slate-500 mt-0.5">Search terms triggering ad display. Match types include Broad, Phrase, Exact, and Broad Match Modified. Negative keywords suppress irrelevant traffic.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device</p><p class="text-xs text-slate-500 mt-0.5">Desktop, Mobile, or Tablet. Bid adjustments can be applied per device type.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Geography</p><p class="text-xs text-slate-500 mt-0.5">Country, State, City, or Radius targeting. Useful for local and regional campaigns.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">LinkedIn Profile Targeting</p><p class="text-xs text-slate-500 mt-0.5">Unique to Microsoft Advertising — target users based on their LinkedIn profile data including Company, Industry, and Job Function. No other search platform offers this natively.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Each display of your ad on Bing's search results or partner network. Bing typically reaches an older, higher-income demographic than Google Search.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Clicks &amp; CTR</p><p class="text-xs text-slate-500 mt-0.5">Total ad clicks and Click-Through Rate (Clicks ÷ Impressions). Bing Search CTRs are often comparable to or slightly higher than Google due to less competition.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Avg. CPC</p><p class="text-xs text-slate-500 mt-0.5">Average cost per click. Bing CPCs are typically 20–35% lower than equivalent Google keywords due to lower auction competition.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Spend</p><p class="text-xs text-slate-500 mt-0.5">Total ad spend charged in the period across all clicks and interactions on the Microsoft Search Network.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions &amp; Conversion Rate</p><p class="text-xs text-slate-500 mt-0.5">Goal completions tracked via the UET (Universal Event Tracking) tag. Conversion Rate = Conversions ÷ Clicks.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Revenue</p><p class="text-xs text-slate-500 mt-0.5">Tracked revenue from conversions when a revenue variable is passed in the UET tag. Enables ROAS calculations directly within the platform.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impression Share</p><p class="text-xs text-slate-500 mt-0.5">% of eligible impressions your ads captured. Lost IS is split by Budget (spend limit) and Rank (bid/quality issue).</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Quality Score</p><p class="text-xs text-slate-500 mt-0.5">1–10 rating for keyword relevance, expected CTR, and landing page quality. Functions similarly to Google's Quality Score and affects ad position and CPC.</p></div>
+        </div>
+      </div>
+
+      <!-- ── META ADS ── -->
+      <div id="dsp-meta" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></div>
+          <div><span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Social</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Meta Ads (Facebook &amp; Instagram)</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Meta Ads Manager manages paid campaigns across Facebook, Instagram, Messenger, and Audience Network. Objective-based buying with advanced audience targeting using first-party behavioral data, Custom Audiences, Lookalikes, and Meta's interest graph.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">Top-level objective container. Meta objectives: Awareness, Traffic, Engagement, Leads, App Promotion, or Sales. The objective determines available optimization events.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Set</p><p class="text-xs text-slate-500 mt-0.5">Contains audience targeting, budget, schedule, and placement settings. Multiple ad sets within one campaign allows A/B testing of different audience segments.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad</p><p class="text-xs text-slate-500 mt-0.5">Individual creative unit: single image, video, carousel, collection, or Instant Experience. Multiple ads per ad set allow creative testing.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Placement</p><p class="text-xs text-slate-500 mt-0.5">Where the ad appears: Facebook Feed, Instagram Feed, Stories, Reels, Marketplace, In-Stream Video, Audience Network, or Messenger. Advantage+ Placements lets Meta auto-optimize.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Age &amp; Gender</p><p class="text-xs text-slate-500 mt-0.5">Demographic breakdown of users who saw or interacted with the ad. Available as a breakdown dimension in Ads Manager reporting.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Region &amp; Device</p><p class="text-xs text-slate-500 mt-0.5">Geographic (Country, State, DMA) and device (Mobile iOS, Mobile Android, Desktop) performance breakdown.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Total number of times your ad was displayed, including repeat views by the same person. Unlike Reach, one person seeing an ad 3 times counts as 3 impressions.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Reach</p><p class="text-xs text-slate-500 mt-0.5">The number of unique accounts that saw your ad at least once. The best measure of unduplicated audience exposure.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Frequency</p><p class="text-xs text-slate-500 mt-0.5">Impressions ÷ Reach. The average number of times each person saw your ad. High frequency (5+) can cause ad fatigue; monitor closely on small audiences.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Link Clicks</p><p class="text-xs text-slate-500 mt-0.5">Clicks specifically on the destination URL or CTA button — the most intent-signaling click metric. Distinct from Clicks (All) which includes reactions, shares, and comments.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CTR (Link Click-Through Rate)</p><p class="text-xs text-slate-500 mt-0.5">Link Clicks ÷ Impressions. A more focused engagement metric than overall CTR because it isolates actual destination-bound clicks.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPC (Cost per Link Click)</p><p class="text-xs text-slate-500 mt-0.5">Spend ÷ Link Clicks. Average cost for each user navigating to your destination. Use this over Cost per Click (All) for intent-based efficiency analysis.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPM (Cost per 1,000 Impressions)</p><p class="text-xs text-slate-500 mt-0.5">Spend ÷ Impressions × 1,000. The cost of 1,000 ad views. Primary efficiency metric for awareness campaigns.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions &amp; Cost per Conversion</p><p class="text-xs text-slate-500 mt-0.5">Tracked events (Purchase, Lead, Add to Cart, etc.) via Meta Pixel or Conversions API (CAPI). CAPI is preferred post-iOS 14 for server-side accuracy. Cost per Conversion = Spend ÷ Conversions.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Purchase ROAS</p><p class="text-xs text-slate-500 mt-0.5">Purchase Conversion Value ÷ Spend. Reported directly in Meta Ads Manager when purchase value is passed via the Pixel or CAPI purchase event.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">ThruPlays</p><p class="text-xs text-slate-500 mt-0.5">Times a video played to completion or was watched for at least 15 seconds. Used as the optimization event for video view campaigns.</p></div>
+        </div>
+      </div>
+
+      <!-- ── TIKTOK ADS ── -->
+      <div id="dsp-tiktok" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BE185D" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+          <div><span class="tag" style="background:rgba(190,24,93,.1);color:#BE185D">Social · Video</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">TikTok Ads</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">TikTok Ads Manager delivers video-first campaigns across TikTok's global short-form platform. In-Feed ads are the standard format; TopView and Brand Takeover offer premium high-impact placements. Spark Ads allow boosting organic posts as paid content.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">Objective container. TikTok objectives: Reach, Traffic, Video Views, Community Interaction, Lead Generation, Website Conversions, or Product Sales.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Group</p><p class="text-xs text-slate-500 mt-0.5">Targeting, placement, budget, schedule, and optimization settings. One campaign can contain multiple ad groups testing different audiences.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad &amp; Placement</p><p class="text-xs text-slate-500 mt-0.5">Individual video creative. Placements: TikTok In-Feed, TopView, Brand Takeover, Branded Hashtag Challenge, or Spark Ads (boosted organic content).</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Age, Gender &amp; Region</p><p class="text-xs text-slate-500 mt-0.5">Demographic and geographic targeting. TikTok skews 18–34 but has expanding older demographics.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Total times your ad appeared in a user's TikTok feed or on a TikTok placement. Counted when the ad is rendered, regardless of whether the video plays.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Reach &amp; Frequency</p><p class="text-xs text-slate-500 mt-0.5">Reach: unique users exposed. Frequency: Impressions ÷ Reach (average ad views per user). High frequency on TikTok can accelerate creative fatigue — rotate creatives often.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Video Views</p><p class="text-xs text-slate-500 mt-0.5">Times the video ad played for at least 2 seconds with at least 50% of the screen occupied. The baseline engagement metric for TikTok video campaigns.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">6-Second View Rate</p><p class="text-xs text-slate-500 mt-0.5">% of impressions where the video was watched for at least 6 seconds. A proxy for meaningful message exposure — users who watched 6s likely absorbed the core message.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Video Completion Rate (VCR)</p><p class="text-xs text-slate-500 mt-0.5">Completed views (100% watched) ÷ Impressions. TikTok's non-skippable In-Feed inventory typically sees 25–40% VCR. ThruPlay optimization targets high-VCR delivery.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Clicks, CTR &amp; CPC</p><p class="text-xs text-slate-500 mt-0.5">Clicks on the ad's CTA button or destination link. CTR = Clicks ÷ Impressions. CPC = Spend ÷ Clicks. TikTok CPCs are often lower than Meta for similar demographics.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions &amp; CPA</p><p class="text-xs text-slate-500 mt-0.5">Actions tracked via TikTok Pixel or Events API (Purchase, Add to Cart, Lead, Registration, etc.). CPA = Spend ÷ Conversions.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Engagement Rate</p><p class="text-xs text-slate-500 mt-0.5">(Likes + Comments + Shares + Follows + Profile Visits) ÷ Impressions. TikTok's social engagement signals are stronger than most platforms — high engagement often indicates content resonance beyond the ad itself.</p></div>
+        </div>
+      </div>
+
+      <!-- ── DV360 ── -->
+      <div id="dsp-dv360" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#DBEAFE,#BFDBFE)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg></div>
+          <div><span class="tag">Display · Pre-roll · CTV</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">DV360 (Display &amp; Video 360)</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Google's enterprise programmatic DSP. DV360 provides access to premium open-exchange and private marketplace inventory across Display, Native, Rich Media, Pre-roll, and CTV. Offers deep integration with Google's audience signals, brand safety tools, and the full Google Marketing Platform.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">Top-level budget and reporting container in DV360. Houses multiple Insertion Orders.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Insertion Order (IO)</p><p class="text-xs text-slate-500 mt-0.5">Budget, pacing, and frequency cap settings for a campaign flight. Maps directly to Factor42's IO concept — each DV360 IO corresponds to a channel/tactic budget allocation.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Line Item</p><p class="text-xs text-slate-500 mt-0.5">A targeting and buying strategy unit within an IO. Defines the creative, bid type, targeting audience, and pacing for a specific inventory type.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Exchange / Supply Source</p><p class="text-xs text-slate-500 mt-0.5">The ad exchange or publisher network serving the impression: Google Display Network, Magnite, OpenX, PubMatic, Index Exchange, etc. Used to evaluate supply quality.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Domain / App</p><p class="text-xs text-slate-500 mt-0.5">The specific website or mobile app where the ad appeared. Essential for brand safety review and site-level performance analysis.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Audience Segment</p><p class="text-xs text-slate-500 mt-0.5">First-party audiences, Google Audiences (Affinity, In-Market, Life Events), or custom combined segments applied to targeting. Segment performance breakdowns identify highest-value user pools.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Total programmatic ad displays purchased across open exchange and private marketplace inventory. Counted when the creative is rendered, before viewability is determined.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Viewable Impressions</p><p class="text-xs text-slate-500 mt-0.5">Impressions meeting the MRC viewability standard: ≥50% of pixels in-view for ≥1 continuous second (display) or ≥2 seconds (video). The core quality metric for programmatic.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Viewability Rate</p><p class="text-xs text-slate-500 mt-0.5">Viewable Impressions ÷ Measured Impressions. Industry benchmark: ≥70% for display is considered good. Private marketplace deals often guarantee 70%+ viewability.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Active View Measurability</p><p class="text-xs text-slate-500 mt-0.5">% of impressions where viewability could technically be measured (requires Active View-compatible inventory). Low measurability indicates supply quality issues.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Video Completion Rate (VCR)</p><p class="text-xs text-slate-500 mt-0.5">Full video views ÷ Impressions. For Pre-roll and CTV, VCR is a primary KPI. Non-skippable inventory typically delivers 90%+ VCR; skippable drops to 25–40%.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Post-Click Conversions</p><p class="text-xs text-slate-500 mt-0.5">Conversions from users who clicked the display ad and converted within the attribution window.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Post-View Conversions</p><p class="text-xs text-slate-500 mt-0.5">Conversions from users who saw (but did not click) the ad and later converted. Measures the assisted awareness impact of programmatic display.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Brand Safety</p><p class="text-xs text-slate-500 mt-0.5">% of impressions meeting brand safety criteria (no adjacent harmful, explicit, or controversial content). Monitored via IAS, DoubleVerify, or DV360's native brand safety tools.</p></div>
+        </div>
+      </div>
+
+      <!-- ── AMAZON DSP ── -->
+      <div id="dsp-amazon" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#FEF9C3,#FEF08A)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A16207" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path><path d="M3 9l2-4h14l2 4"></path></svg></div>
+          <div><span class="tag" style="background:rgba(161,98,7,.1);color:#A16207">Display · Pre-roll · OTT</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Amazon DSP</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Amazon's programmatic DSP provides access to Amazon-owned inventory (Amazon.com, IMDb, Twitch, Fire TV) and third-party publishers, powered by Amazon's proprietary first-party shopping and browsing signals. Unmatched for e-commerce and retail brands.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Order</p><p class="text-xs text-slate-500 mt-0.5">Amazon DSP's equivalent of an Insertion Order — sets the campaign budget, flight dates, and billing. Maps to Factor42's IO structure.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Line Item</p><p class="text-xs text-slate-500 mt-0.5">Targeting unit within an Order. Defines supply source, creative, bid, and audience segment.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Supply Source</p><p class="text-xs text-slate-500 mt-0.5">Amazon-owned inventory (Amazon.com, IMDb, Twitch) vs. third-party publishers. Amazon-owned supply is premium and offers exclusive shopping intent signals.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Audience Segment</p><p class="text-xs text-slate-500 mt-0.5">Amazon's proprietary signals: In-Market (actively shopping a category), Lifestyle (behavioral interest), Remarketing (visited product page/cart), and Lookalike segments. No other DSP has equivalent retail intent data.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Product (ASIN)</p><p class="text-xs text-slate-500 mt-0.5">The specific Amazon product (identified by ASIN) being promoted. Campaign metrics can be broken down by individual product performance.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions &amp; eCPM</p><p class="text-xs text-slate-500 mt-0.5">Total ad displays. eCPM (Effective CPM) = actual cost per 1,000 impressions delivered — the realized buying rate vs. the bid rate.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">DPV (Detail Page Views)</p><p class="text-xs text-slate-500 mt-0.5">Times users viewed the promoted product's detail page on Amazon after seeing or clicking the ad. A unique Amazon metric that tracks upper-funnel engagement with the product listing itself.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Add to Cart (ATC)</p><p class="text-xs text-slate-500 mt-0.5">Times users added the advertised product to their Amazon cart following ad exposure. Strong mid-funnel intent signal.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Purchases</p><p class="text-xs text-slate-500 mt-0.5">Total orders placed for the advertised product within the 14-day post-click/post-view attribution window. The primary bottom-funnel conversion metric.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">New-to-Brand (NTB) Purchases</p><p class="text-xs text-slate-500 mt-0.5">Purchases from customers who had not bought from this brand on Amazon in the past 12 months. Measures true customer acquisition vs. re-purchase, which is critical for brand growth measurement.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Total Sales &amp; NTB Sales</p><p class="text-xs text-slate-500 mt-0.5">Total ad-attributed revenue (all purchases × product price). NTB Sales isolates revenue from new customers only. Both are available directly in Amazon DSP reporting.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">ROAS</p><p class="text-xs text-slate-500 mt-0.5">Total Sales ÷ Total Spend. Amazon is unique in offering direct purchase data in the same reporting interface as ad spend, making ROAS fully attributable within the platform.</p></div>
+        </div>
+      </div>
+
+      <!-- ── REDDIT ADS ── -->
+      <div id="dsp-reddit" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#FEE2E2,#FECACA)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M14.5 8.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5"></path><circle cx="9" cy="13" r="1"></circle><circle cx="15" cy="13" r="1"></circle><path d="M9.5 17s1 1 2.5 1 2.5-1 2.5-1"></path></svg></div>
+          <div><span class="tag" style="background:rgba(220,38,38,.1);color:#DC2626">Social · Community</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Reddit Ads</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Reddit Ads reaches highly engaged niche communities (subreddits) across 100,000+ interest-based forums. Effective for targeting enthusiast audiences, tech communities, gaming, finance, and lifestyle verticals where community trust drives higher consideration.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign</p><p class="text-xs text-slate-500 mt-0.5">Objective container. Reddit objectives: Brand Awareness &amp; Reach, Traffic, Conversions, Video Views, or App Installs.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Group</p><p class="text-xs text-slate-500 mt-0.5">Targeting, budget, and schedule settings. Reddit supports targeting by Subreddit, Interest, Keyword, Location, Device, and Audience.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Subreddit / Interest</p><p class="text-xs text-slate-500 mt-0.5">Community or interest category targeting. Subreddit targeting places ads within specific communities (r/finance, r/gaming). Interest targeting scales across related communities automatically.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device &amp; Geography</p><p class="text-xs text-slate-500 mt-0.5">Mobile vs. Desktop performance breakdown. Geographic targeting at Country, State, DMA, and City levels.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions &amp; Reach</p><p class="text-xs text-slate-500 mt-0.5">Impressions: total ad displays in Reddit feeds and subreddit pages. Reach: unique Redditors who saw the ad at least once.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Clicks &amp; CTR</p><p class="text-xs text-slate-500 mt-0.5">Clicks on the ad link or CTA. CTR = Clicks ÷ Impressions. Reddit CTRs vary significantly by subreddit relevance — niche targeting often outperforms broad interest targeting.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPC &amp; CPM</p><p class="text-xs text-slate-500 mt-0.5">CPC = Spend ÷ Clicks. CPM = (Spend ÷ Impressions) × 1,000. Reddit CPMs are often lower than Meta or Google for comparable audiences.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Video Completion Rate</p><p class="text-xs text-slate-500 mt-0.5">Full video views ÷ Video starts. Reddit video ads autoplay in-feed and are typically 15–30 seconds. Completion rate signals creative resonance with the community.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions &amp; CPA</p><p class="text-xs text-slate-500 mt-0.5">Goal completions (Purchase, Lead, Sign Up, etc.) tracked via Reddit Pixel. CPA = Spend ÷ Conversions.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Upvote Rate</p><p class="text-xs text-slate-500 mt-0.5">Organic upvotes received on sponsored posts, expressed as a rate against impressions. A unique Reddit metric — high upvotes indicate the ad feels authentic to the community and can significantly reduce effective CPM.</p></div>
+        </div>
+      </div>
+
+      <!-- ── OTT / CTV ── -->
+      <div id="dsp-ott" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#DCFCE7,#BBF7D0)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg></div>
+          <div><span class="tag" style="background:rgba(22,163,74,.1);color:#16A34A">Streaming · CTV · Pre-roll</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">OTT / Connected TV (CTV)</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Over-the-Top (OTT) and Connected TV (CTV) advertising delivers video ads within streaming content on Smart TVs, streaming sticks, and game consoles. Inventory includes ad-supported streaming services (Hulu, Peacock, Pluto TV, Tubi, Roku Channel) and direct publisher apps. Most OTT inventory is non-skippable, delivering high completion rates.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Publisher / App</p><p class="text-xs text-slate-500 mt-0.5">The streaming service or app where the ad appeared: Hulu, Peacock, Pluto TV, Tubi, Roku Channel, Paramount+, etc. Publisher-level reporting reveals which services deliver the best performance.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device Type</p><p class="text-xs text-slate-500 mt-0.5">Smart TV, Streaming Stick (Roku, Fire TV), Game Console (PlayStation, Xbox), or Desktop. Smart TV is typically the dominant device for CTV delivery.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">DMA (Designated Market Area)</p><p class="text-xs text-slate-500 mt-0.5">Local TV market geography. OTT uses DMAs for geographic targeting — the same unit as linear TV, enabling direct comparison of CTV vs. traditional TV delivery.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Audience Segment</p><p class="text-xs text-slate-500 mt-0.5">Behavioral, demographic, or first-party audience segments applied to CTV inventory. Enables precision targeting unavailable in linear TV.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Creative Length &amp; Pod Position</p><p class="text-xs text-slate-500 mt-0.5">Creative length (15s, 30s, 60s) impacts both cost and completion rate. Pod position (first, mid, or last in the ad break) affects viewer attention — first position commands a premium.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Total ad plays triggered across OTT inventory. An OTT impression is counted when the ad begins playing — it does not mean the full ad was watched.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Video Completion Rate (VCR)</p><p class="text-xs text-slate-500 mt-0.5">Completed views ÷ Impressions. The primary quality KPI for OTT. Non-skippable CTV inventory typically delivers 95%+ VCR. If VCR falls below 85%, investigate fraudulent or low-quality supply.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPM</p><p class="text-xs text-slate-500 mt-0.5">Cost per 1,000 impressions. CTV CPMs typically range from $25–$65 depending on content, audience, and deal type. Premium publisher direct deals command higher CPMs but deliver better viewability and completion.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">eCPV (Effective Cost Per View)</p><p class="text-xs text-slate-500 mt-0.5">Spend ÷ Completed Views. A more accurate cost efficiency metric than CPM for video — it accounts for completion rate, so a high-CPM placement with 98% VCR may outperform a low-CPM placement with 70% VCR on a cost-per-view basis.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Unique Households &amp; Frequency</p><p class="text-xs text-slate-500 mt-0.5">Estimated distinct households reached (measured via IP address and ACR data). Frequency = Impressions ÷ Unique Households. Managing household frequency prevents overexposure on the same screen.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">On-Target Percentage</p><p class="text-xs text-slate-500 mt-0.5">% of impressions that reached the intended demographic segment. Measured by third-party verification partners (Nielsen DAR, Comscore). A lower on-target % indicates audience leakage.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Foot Traffic Lift</p><p class="text-xs text-slate-500 mt-0.5">Incremental store visits attributable to CTV exposure, measured by matching device location data to exposed vs. unexposed households. Available via partnerships with Foursquare, Placed, or LiveRamp.</p></div>
+        </div>
+      </div>
+
+      <!-- ── EMAIL MARKETING ── -->
+      <div id="dsp-email" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+          <div><span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Email · Direct</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Email Marketing</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Email marketing remains one of the highest-ROI digital channels with average returns of $36–$42 per dollar spent. Platforms like Mailchimp, Klaviyo, HubSpot, and Salesforce Marketing Cloud power broadcast sends, automated flows, and transactional communications. Unlike paid media, email reaches an owned audience — deliverability and list health are critical operational metrics.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Campaign / Send</p><p class="text-xs text-slate-500 mt-0.5">An individual email blast or automated send. Each campaign has its own performance metrics isolated by send date, subject line, and audience segment.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Segment</p><p class="text-xs text-slate-500 mt-0.5">The audience list or behavioral segment receiving the email — subscribers, purchasers, cart abandoners, VIPs, etc. Segment-level performance reveals which audiences engage most.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Subject Line</p><p class="text-xs text-slate-500 mt-0.5">Used for A/B test performance comparison. Subject line impacts Open Rate more than any other single variable — even small wording changes drive measurable lift.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Send Time / Day</p><p class="text-xs text-slate-500 mt-0.5">Day of week and time of day the email was delivered. Most ESPs offer send-time optimization (STO) that delivers to each subscriber at their personal optimal open time.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device &amp; Email Client</p><p class="text-xs text-slate-500 mt-0.5">Mobile vs. Desktop opens. Email client breakdown (Gmail, Outlook, Apple Mail) is critical for rendering QA — each client renders HTML differently.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Emails Sent &amp; Delivered</p><p class="text-xs text-slate-500 mt-0.5">Sent: total emails dispatched. Delivered: Sent minus bounces — emails that reached the inbox or spam folder. A healthy list should see 97–99% delivery rate.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Open Rate</p><p class="text-xs text-slate-500 mt-0.5">Opens ÷ Delivered. Tracked via a 1×1 pixel image load — note that Apple Mail Privacy Protection (MPP) inflates open rates by pre-loading tracking pixels. Industry benchmark: 20–30% varies widely by sector.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Click-Through Rate (CTR)</p><p class="text-xs text-slate-500 mt-0.5">Clicks ÷ Delivered. Measures the percentage of the total recipient list that clicked any link in the email. More conservative than CTOR because it includes non-openers in the denominator.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Click-to-Open Rate (CTOR)</p><p class="text-xs text-slate-500 mt-0.5">Clicks ÷ Opens. Measures content relevance among people who actually opened the email. A high Open Rate with low CTOR indicates the subject line over-promised relative to content. Benchmark: 10–20%.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Unsubscribe Rate</p><p class="text-xs text-slate-500 mt-0.5">Unsubscribes ÷ Delivered. Keep below 0.2% per send. Sustained high unsubscribes indicate frequency overload, irrelevant content, or a list health problem. Monitor alongside spam complaint rate.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Hard Bounce Rate</p><p class="text-xs text-slate-500 mt-0.5">Hard bounces (permanent delivery failures — invalid address) ÷ Sent. Hard bounces should be removed immediately. High hard bounce rates damage sender reputation and hurt deliverability for the entire domain.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Conversions &amp; Revenue per Email</p><p class="text-xs text-slate-500 mt-0.5">Goal completions (purchase, sign-up, download) tracked via UTM parameters in analytics. Revenue per Email = Total Revenue ÷ Emails Delivered — the core efficiency metric for e-commerce senders.</p></div>
+        </div>
+      </div>
+
+      <!-- ── AUDIO STREAMING ── -->
+      <div id="dsp-audio" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#DCFCE7,#BBF7D0)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg></div>
+          <div><span class="tag" style="background:rgba(21,128,61,.1);color:#15803D">Audio · Podcast · Streaming</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">Audio Streaming</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Audio advertising reaches listeners through streaming music, podcasts, and digital radio on Spotify, Pandora, iHeartRadio, SiriusXM, and podcast networks. Audio ads capture attention in screenless moments — commuting, exercising, cooking — when no other digital channel can reach the user. Most audio inventory is non-skippable.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Ad Format</p><p class="text-xs text-slate-500 mt-0.5">Audio (15s or 30s in-stream), Video Takeover (fullscreen on mobile during listening), Companion Banner (visual ad alongside audio), Sponsored Session (ad-free listening in exchange for a video view), or Podcast Host-Read Ad.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Playlist / Genre / Podcast</p><p class="text-xs text-slate-500 mt-0.5">Content context where the ad was inserted. Genre targeting (hip-hop, pop, news, true crime) and playlist targeting enable brand-safe contextual adjacency.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Device</p><p class="text-xs text-slate-500 mt-0.5">Mobile, Desktop, Smart Speaker (Amazon Echo, Google Home), or Connected Car. Device breakdown reveals where listeners are and what companion actions are possible.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Daypart</p><p class="text-xs text-slate-500 mt-0.5">Time-of-day targeting: Morning Commute, Work Hours, Evening, or Late Night. Daypart targeting aligns messaging with the listener's activity context (e.g., morning energy brands in commute hours).</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Age, Gender &amp; Geography</p><p class="text-xs text-slate-500 mt-0.5">Demographic and geographic breakdown. Spotify's logged-in user base provides accurate demographic data; Country, State, DMA, and City targeting available.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions</p><p class="text-xs text-slate-500 mt-0.5">Total audio ad plays triggered — counted when the ad begins streaming. On screenless devices, an impression is the primary delivery metric since click is not possible.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Completed Listens</p><p class="text-xs text-slate-500 mt-0.5">Times the full audio ad played from start to finish without interruption. The audio equivalent of a video view completion — the core measure of message delivery.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Listen-Through Rate (LTR)</p><p class="text-xs text-slate-500 mt-0.5">Completed Listens ÷ Impressions. Industry benchmark: 80–90% for non-skippable streaming audio. Podcast host-read ads often see 60–75% completion due to listener skip behavior.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPM</p><p class="text-xs text-slate-500 mt-0.5">Cost per 1,000 audio impressions. Streaming audio CPMs typically range from $15–$35. Podcast advertising is often bought on a CPM basis but may also use flat sponsorship rates.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Reach &amp; Frequency</p><p class="text-xs text-slate-500 mt-0.5">Unique listeners exposed during the flight. Frequency = Impressions ÷ Unique Listeners. Audio listeners are typically exposed to fewer ads per session than display users — frequency capping is critical to prevent over-repetition.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Companion Banner Clicks &amp; CTR</p><p class="text-xs text-slate-500 mt-0.5">Clicks on the visual banner displayed alongside the audio ad in mobile and desktop apps (Spotify and Pandora). CTR = Banner Clicks ÷ Impressions. Companion banners provide the only clickable element in mobile audio.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Streaming Conversion Rate</p><p class="text-xs text-slate-500 mt-0.5">For campaigns with conversion tracking enabled — actions completed after audio ad exposure, measured via pixel or attribution partner. Harder to measure than visual channels but increasingly trackable via deterministic cross-device matching.</p></div>
+        </div>
+      </div>
+
+      <!-- ── DOOH ── -->
+      <div id="dsp-dooh" class="article-anchor lib-section">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-wrap flex-shrink-0" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+          <div><span class="tag" style="background:rgba(217,119,6,.1);color:#D97706">Out-of-Home · DOOH</span><h2 class="text-xl font-bold text-gray-900 mt-0.5" style="font-family:'Plus Jakarta Sans',sans-serif">DOOH (Digital Out-of-Home)</h2></div>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">Digital Out-of-Home advertising delivers brand messaging on digital screens in public environments — roadside billboards, transit networks, airports, retail environments, stadiums, and offices. Programmatic DOOH (pDOOH) enables real-time audience-based buying through platforms like Vistar Media, Hivestack, and Place Exchange. DOOH is the only channel that reaches audiences when they are physically away from home.</p>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Dimensions</h3>
+        <div class="space-y-2 mb-5">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Screen / Venue</p><p class="text-xs text-slate-500 mt-0.5">Individual digital display location. Each screen has a unique identifier with known physical coordinates, venue type, and audience profile. Screen-level reporting reveals the best-performing placements.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Venue Type</p><p class="text-xs text-slate-500 mt-0.5">Category of physical location: Roadside/Billboard, Transit (subway, bus, rail), Airport, Retail (mall, grocery), Point-of-Care (pharmacy, doctor's office), Sports &amp; Entertainment, or Office Building.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Location / DMA</p><p class="text-xs text-slate-500 mt-0.5">Geographic area of the screen. DMA targeting aligns DOOH with TV and CTV buys for integrated local market planning.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Audience Segment</p><p class="text-xs text-slate-500 mt-0.5">Audience profiles derived from mobility data (foot traffic patterns). Segments like "Daily Commuters," "Affluent Shoppers," or "Sports Fans" are built from aggregated anonymized device location signals.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Daypart</p><p class="text-xs text-slate-500 mt-0.5">Time-of-day weighting. DOOH allows daypart-based creative triggers — running a coffee ad during morning commute and a dinner ad in the evening on the same screen network.</p></div>
+        </div>
+
+        <h3 class="font-semibold text-gray-900 text-sm mb-2">Metrics</h3>
+        <div class="space-y-2">
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Impressions (Estimated)</p><p class="text-xs text-slate-500 mt-0.5">Audience exposures estimated using mobility data, traffic counts, and panel measurement. DOOH impressions are modeled, not individually counted — unlike digital display. The industry standard methodology is defined by OAAA and Geopath.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Reach &amp; Frequency</p><p class="text-xs text-slate-500 mt-0.5">Estimated unique people physically exposed to the DOOH campaign during the flight. Frequency = Impressions ÷ Unique Reach — how many times on average each person passed the screen.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">CPM</p><p class="text-xs text-slate-500 mt-0.5">Cost per 1,000 estimated impressions — the primary DOOH buying metric. DOOH CPMs vary widely: transit ($3–$8), roadside billboards ($5–$15), airports ($10–$30+). Premium venue types and dayparts command higher CPMs.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Dwell Time</p><p class="text-xs text-slate-500 mt-0.5">Average time audiences spend within view of the screen, measured by venue sensors or camera analytics where available. Longer dwell time (airports, healthcare waiting rooms) allows for more message complexity than drive-by placements.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Audience Composition</p><p class="text-xs text-slate-500 mt-0.5">Demographic makeup of the exposed audience — age, gender, income level, and lifestyle — derived from mobility data panel studies. Compared against the campaign's target segment to assess delivery quality.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Foot Traffic Lift</p><p class="text-xs text-slate-500 mt-0.5">Incremental store visits from the exposed vs. a matched control audience, measured by matching mobile device IDs seen near DOOH screens to subsequent visits to retail locations. Measured via partners like Foursquare, Near, or Placer.ai.</p></div>
+          <div class="metric-card py-3"><p class="font-semibold text-xs text-gray-900">Brand Awareness Lift</p><p class="text-xs text-slate-500 mt-0.5">Survey-measured uplift in brand recognition, recall, or purchase intent among exposed vs. unexposed audiences. Requires a brand study overlay from a measurement provider — available for larger DOOH buys.</p></div>
+        </div>
+      </div>
+
+      <div id="dsp-push" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(22,163,74,.1);color:#16A34A">Integrations</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">DSP Push — Campaign Execution</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">When a campaign is fully configured and ready to go live, a Campaign Manager or Admin initiates a DSP Push. This is the step that transmits the campaign to the external advertising platform and activates delivery.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">Push Process Steps</h3>
+        <div class="space-y-2 mb-5">
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">1</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Authenticate</strong> — Platform authenticates with the selected DSP using OAuth credentials.</div></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">2</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Create Campaign Object</strong> — Campaign payload (name, objective, creative, budget, dates) is constructed and validated.</div></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">3</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Apply Targeting</strong> — All targeting parameters from the campaign's tactic field map are applied to the DSP payload.</div></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">4</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Set Budget &amp; Bid Strategy</strong> — Budget, pacing, and bidding configuration are set per DSP requirements.</div></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">5</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Validate &amp; Submit</strong> — Platform validates delivery settings before submitting to the DSP.</div></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">6</span><div class="text-sm text-slate-600"><strong class="text-gray-900">Confirm Live</strong> — DSP returns an external campaign ID. Campaign status updates to <em>Live</em>. Pacing tracking begins.</div></div>
+        </div>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">What happens after a successful push</p>
+          <p class="text-xs text-slate-600 leading-relaxed">The campaign card displays a <strong>Live</strong> badge. An external campaign ID is stored for bidirectional sync. A Trafficking task is automatically created in the Trafficking module to manage the creative asset and tag workflow.</p>
+        </div>
+      </div>
+
+      <div id="smart-channel-advisor" class="article-anchor lib-section">
+        <span class="tag" style="background:rgba(124,58,237,.1);color:#7C3AED">Integrations</span>
+        <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Smart Channel Advisor</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">The Smart Channel Advisor is an AI-powered tool within the IO creation flow. It analyzes an advertiser's website to recommend the most effective advertising channels for their specific business and industry context.</p>
+
+        <h3 class="font-bold text-gray-900 mb-3">How the Advisor Works</h3>
+        <div class="space-y-2 mb-5">
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">1</span><p class="text-sm text-slate-600">Select <strong>✨ Smart Channel Recommendation</strong> in the New IO mode picker.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">2</span><p class="text-sm text-slate-600">Enter the advertiser's website URL (auto-filled if already stored on the advertiser profile).</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">3</span><p class="text-sm text-slate-600">The platform analyzes the site: fetches content, scans structure, identifies business intent, and maps content signals to channel recommendations.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">4</span><p class="text-sm text-slate-600">Results show detected domain, industry, and 4 content signals — along with PRIMARY and SECONDARY channel badges with per-channel reasoning cards.</p></div>
+          <div class="flex items-start gap-3"><span class="step-num mt-0.5">5</span><p class="text-sm text-slate-600">Toggle channels on or off, add non-recommended channels, and confirm. The IO form is pre-populated with the selected channels and suggested tactics.</p></div>
+        </div>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-xs font-semibold text-blue-600 mb-1">Re-analyze at any time</p>
+          <p class="text-xs text-slate-600">If the advertiser's site has changed or you want to test a different URL, use the <strong>Re-analyse</strong> link in the AI recommendation banner at the top of the IO form to trigger a fresh analysis without losing any other IO data.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 rounded-2xl p-8 text-center" style="background:linear-gradient(135deg,rgba(0,102,255,.06),rgba(0,180,216,.06));border:1px solid rgba(0,102,255,.12)">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Want to See the Platform in Action?</h2>
+        <p class="text-slate-500 text-sm mb-6 max-w-md mx-auto">Our team will walk you through the Factor42 OMS tailored to your agency's workflow and scale.</p>
+        <a href="/consultation" class="btn-primary inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white glow-blue">
+          Book a Free Consultation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+
+<script is:inline>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => obs.observe(el));
+    setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+  }
+
+  // Category filter
+  const pills = document.querySelectorAll('.tag-pill');
+  const cards = document.querySelectorAll('#topics-grid .topic-card');
+  const noTopics = document.getElementById('no-topics');
+
+  function setFilter(cat) {
+    pills.forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+    let visible = 0;
+    cards.forEach(c => {
+      const show = cat === 'all' || c.dataset.cat === cat;
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noTopics.classList.toggle('hidden', visible > 0);
+  }
+  pills.forEach(p => p.addEventListener('click', () => setFilter(p.dataset.cat)));
+
+  // Search
+  const searchInput = document.getElementById('lib-search');
+  function clearSearch() { searchInput.value = ''; handleSearch(); return false; }
+  function handleSearch() {
+    const q = searchInput.value.toLowerCase().trim();
+    if (!q) { setFilter('all'); return; }
+    pills.forEach(p => p.classList.remove('active'));
+    let visible = 0;
+    cards.forEach(c => {
+      const text = (c.dataset.search + ' ' + c.textContent).toLowerCase();
+      const show = text.includes(q);
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noTopics.classList.toggle('hidden', visible > 0);
+  }
+  searchInput.addEventListener('input', handleSearch);
+
+  // Sidebar active state on scroll
+  const sections = document.querySelectorAll('.article-anchor');
+  const sidebarLinks = document.querySelectorAll('.lib-sidebar a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        sidebarLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+<script is:inline type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "Factor42 OMS Platform Library",
+    "description": "Comprehensive documentation for the Factor42 Order Management System covering advertisers, insertion orders, campaign management, pacing, reporting analytics, and DSP integrations.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Factor42",
+      "url": "https://factor42media.com"
+    },
+    "about": [
+      {"@type": "SoftwareApplication", "name": "Factor42 OMS", "applicationCategory": "BusinessApplication"},
+      {"@type": "Thing", "name": "Ad Operations"},
+      {"@type": "Thing", "name": "Campaign Management"},
+      {"@type": "Thing", "name": "Analytics Reporting"}
+    ]
+  }
+  </script>
+<style is:global>
+.lib-sidebar a { display:block; padding:0.35rem 0.75rem; border-radius:8px; font-size:0.8rem; font-weight:500; color:#64748b; transition:all .15s; }
+    .lib-sidebar a:hover { background:rgba(0,102,255,.07); color:#0066FF; }
+    .lib-sidebar a.active { background:rgba(0,102,255,.1); color:#0066FF; font-weight:600; }
+    .lib-sidebar .cat-label { font-size:0.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#94a3b8; padding:0.6rem 0.75rem 0.25rem; margin-top:0.75rem; }
+    .lib-sidebar .cat-label:first-child { margin-top:0; }
+    .article-anchor { scroll-margin-top:90px; }
+    .metric-card { background:rgba(255,255,255,.9); border:1px solid rgba(0,102,255,.12); border-radius:16px; padding:1.25rem 1.5rem; }
+    .step-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#0066FF,#00B4D8); color:white; font-size:.75rem; font-weight:700; flex-shrink:0; }
+    .role-badge { display:inline-flex; align-items:center; gap:.3rem; padding:.2rem .65rem; border-radius:9999px; font-size:.72rem; font-weight:600; }
+    .lib-section { border-top:1px solid rgba(0,102,255,.08); padding-top:3rem; margin-top:3rem; }
+    .lib-section:first-child { border-top:none; padding-top:0; margin-top:0; }
+    .tag { display:inline-block; padding:.15rem .55rem; border-radius:6px; font-size:.7rem; font-weight:600; background:rgba(0,102,255,.08); color:#0066FF; }
+    .search-box { border:1px solid rgba(0,102,255,.2); border-radius:12px; background:rgba(255,255,255,.95); padding:.65rem 1rem .65rem 2.75rem; font-size:.9rem; color:#0A0F1E; outline:none; width:100%; transition:border-color .18s, box-shadow .18s; }
+    .search-box:focus { border-color:#0066FF; box-shadow:0 0 0 3px rgba(0,102,255,.1); }
+    .search-box::placeholder { color:#94a3b8; }
+    .topic-card { background:rgba(255,255,255,.9); border:1px solid rgba(0,102,255,.1); border-radius:16px; padding:1.25rem; transition:border-color .2s, box-shadow .2s, transform .2s; cursor:pointer; }
+    .topic-card:hover { border-color:rgba(0,102,255,.3); box-shadow:0 6px 24px rgba(0,102,255,.1); transform:translateY(-2px); }
+    .icon-wrap { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .pacing-bar { height:6px; border-radius:3px; background:rgba(0,102,255,.1); overflow:hidden; }
+    .pacing-fill { height:100%; border-radius:3px; }
+</style>
+</BaseLayout>

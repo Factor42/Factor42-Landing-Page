@@ -1,0 +1,16 @@
+---
+// Shared site footer — copyright + legal/nav links.
+const year = new Date().getFullYear();
+---
+<footer class="border-t py-8 px-6 site-footer">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-xs text-slate-500">&copy; {year} Factor42, Inc. All rights reserved.</p>
+    <nav class="flex flex-wrap gap-4" aria-label="Footer">
+      <a href="/blog" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="/privacy-policy" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Privacy Policy</a>
+      <a href="/terms-of-service" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Terms of Service</a>
+      <a href="/sla" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">SLA</a>
+      <a href="/security" class="text-xs text-slate-500 hover:text-gray-900 transition-colors">Security</a>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,638 @@
+/* ============================================================
+   Factor42 — Global Stylesheet
+   Loaded by all HTML pages after the Tailwind CDN script.
+   Tailwind handles utility classes; this file defines custom
+   component classes and design-token rules.
+   ============================================================ */
+
+/* ── BASE ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #F0F4FF;
+  color: #0A0F1E;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* ── DISPLAY FONT HELPER ───────────────────────────────────── */
+/* Replace inline style="font-family:'Plus Jakarta Sans',sans-serif" */
+.font-display {
+  font-family: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, sans-serif;
+}
+
+/* ── GRADIENT TEXT ─────────────────────────────────────────── */
+.gradient-text-blue {
+  background: linear-gradient(135deg, #0066FF 0%, #00B4D8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Alias used by privacy-policy.html — identical gradient */
+.logo-gradient {
+  background: linear-gradient(135deg, #0066FF 0%, #00B4D8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0052CC 0%, #0066FF 50%, #00B4D8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── GLASS CARD ────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 102, 255, 0.12);
+  box-shadow: 0 2px 16px rgba(0, 102, 255, 0.06);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 102, 255, 0.3);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 24px rgba(0, 102, 255, 0.12);
+}
+
+/* ── GRID BACKGROUND ───────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 102, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 102, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── BUTTONS ───────────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+  transition: filter 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-outline {
+  border: 1px solid rgba(0, 102, 255, 0.4);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: #0066FF;
+  background: rgba(0, 102, 255, 0.06);
+  color: #0066FF !important;
+}
+
+/* ── GLOW ──────────────────────────────────────────────────── */
+.glow-blue {
+  box-shadow: 0 0 30px rgba(0, 102, 255, 0.2);
+}
+
+/* ── SCROLL-REVEAL ─────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── REDUCED MOTION ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── KEYFRAME ANIMATIONS ───────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(0, 102, 255, 0.6); }
+}
+
+/* ── ANIMATION UTILITY CLASSES ─────────────────────────────── */
+.anim-fade-in-up { animation: fadeInUp  0.6s ease-out forwards; }
+.anim-fade-in    { animation: fadeIn    0.6s ease-out forwards; }
+.anim-float      { animation: float     4s ease-in-out infinite; }
+.anim-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+
+.d100 { animation-delay: 0.1s; }
+.d200 { animation-delay: 0.2s; }
+.d300 { animation-delay: 0.3s; }
+.d400 { animation-delay: 0.4s; }
+
+/* ── SITE HEADER ───────────────────────────────────────────── */
+/* Frosted-glass header used on all pages except index.html (JS-controlled)
+   and privacy-policy.html (uses a different Tailwind-based style) */
+.site-header {
+  background: rgba(240, 244, 255, 0.97);
+  border-color: rgba(0, 102, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── SITE FOOTER ───────────────────────────────────────────── */
+.site-footer {
+  border-color: rgba(0, 102, 255, 0.1);
+}
+
+/* ── SOLUTIONS TABS (index.html) ───────────────────────────── */
+.sol-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid rgba(0, 102, 255, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  color: #475569;
+  transition: all 0.2s;
+}
+
+.sol-tab:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.sol-tab.active {
+  border-color: #0066FF;
+  background: #0066FF;
+  color: white;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+}
+
+.sol-tab.active svg path,
+.sol-tab.active svg rect,
+.sol-tab.active svg line,
+.sol-tab.active svg circle,
+.sol-tab.active svg polyline {
+  stroke: white !important;
+}
+
+.sol-panel { animation: fadeIn 0.35s ease-out; }
+.sol-panel.hidden { display: none; }
+
+/* ── STAT CARD (about.html) ────────────────────────────────── */
+.stat-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 102, 255, 0.12);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+/* ── TIMELINE (about.html) ─────────────────────────────────── */
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 1.75rem;
+  bottom: -1rem;
+  width: 1px;
+  background: rgba(0, 102, 255, 0.15);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: #0066FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── PRINCIPLE CARD (about.html) ───────────────────────────── */
+.principle-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.75rem;
+}
+
+/* ── PULL QUOTE ────────────────────────────────────────────── */
+/* Blog-post style (full block): default blue; overridden per post */
+.pull-quote {
+  border-left: 3px solid #0066FF;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: 0 10px 10px 0;
+  margin: 2rem 0;
+}
+
+.pull-quote p {
+  color: #334155;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ── ARTICLE CARD (blog.html) ──────────────────────────────── */
+.article-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card:hover {
+  border-color: rgba(0, 102, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ── CATEGORY PILL (blog.html) ─────────────────────────────── */
+.cat-pill {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ── FEATURED CARD (blog.html) ─────────────────────────────── */
+.featured-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 102, 255, 0.14);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.featured-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.12);
+}
+
+/* ── TAG / FILTER PILL (blog.html, careers.html) ───────────── */
+.tag-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tag-pill:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+}
+
+.tag-pill.active {
+  border-color: #0066FF;
+  background: #0066FF;
+  color: white;
+}
+
+/* ── ARTICLE IMAGE (blog.html) ─────────────────────────────── */
+.article-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── FORM INPUT (consultation.html, contact.html) ──────────── */
+.f42-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 0.875rem;
+  color: #0A0F1E;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: 'Inter', sans-serif;
+}
+
+.f42-input:focus {
+  border-color: #0066FF;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+}
+
+.f42-input::placeholder {
+  color: #94a3b8;
+}
+
+select.f42-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%230066FF' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* ── FORM LABEL (consultation.html) ───────────────────────── */
+.f42-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.f42-label span {
+  color: #0066FF;
+}
+
+/* ── PLATFORM CHECKBOX (consultation.html) ─────────────────── */
+.platform-check {
+  display: none;
+}
+
+.platform-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, color 0.18s;
+  user-select: none;
+}
+
+.platform-check:checked + .platform-label {
+  border-color: #0066FF;
+  background: rgba(0, 102, 255, 0.08);
+  color: #0066FF;
+}
+
+/* ── TRUST BADGE (consultation.html) ──────────────────────── */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 102, 255, 0.14);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+  white-space: nowrap;
+}
+
+/* ── INFO CARD HOVER (contact.html) ────────────────────────── */
+.info-card {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.info-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── SEARCH INPUT (careers.html) ───────────────────────────── */
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 0.9rem;
+  color: #0A0F1E;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: 'Inter', sans-serif;
+}
+
+.search-input:focus {
+  border-color: #0066FF;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+/* ── FILTER PILL (careers.html) ─────────────────────────────── */
+.filter-pill {
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.filter-pill:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+  background: rgba(0, 102, 255, 0.05);
+}
+
+.filter-pill.active {
+  border-color: #0066FF;
+  background: #0066FF;
+  color: white;
+}
+
+/* ── JOB CARD (careers.html) ───────────────────────────────── */
+.job-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.job-card:hover {
+  border-color: rgba(0, 102, 255, 0.35);
+  box-shadow: 0 6px 24px rgba(0, 102, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.job-card.hidden-card {
+  display: none;
+}
+
+/* ── DEPT BADGE (careers.html) ─────────────────────────────── */
+.dept-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ── VALUE CARD (careers.html) ─────────────────────────────── */
+.value-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 102, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.75rem;
+  transition: box-shadow 0.2s;
+}
+
+.value-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.1);
+}
+
+/* ── PROSE (blog post pages) ───────────────────────────────── */
+.prose h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0A0F1E;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.prose h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.prose p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+}
+
+.prose strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Pull-quotes: migrated from <div class="pull-quote"> to Markdown blockquotes. */
+.prose blockquote {
+  border-left: 3px solid #0066FF;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: 0 10px 10px 0;
+  margin: 2rem 0;
+}
+
+.prose blockquote p {
+  color: #334155;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ── STAT BOX (blog post pages) ────────────────────────────── */
+/* Default blue; overridden per post with thematic border-color */
+.stat-box {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 102, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* ── SECURITY / INLINE LINK (security.html, sla.html) ─────── */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+}
+
+a.inline-link {
+  color: #0066FF;
+  text-decoration: underline;
+}
+
+/* ── ACCENT (privacy-policy.html) ──────────────────────────── */
+.accent {
+  color: #0066FF;
+}

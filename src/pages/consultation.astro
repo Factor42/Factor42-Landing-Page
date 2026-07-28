@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={"Book a Free Consultation — Factor42"} description={"Book a free 30-minute consultation with Factor42"}>
+<!-- HEADER -->
+
+
+<main class="pt-20">
+
+  <!-- HERO BAND -->
+  <section class="grid-bg py-16 px-6 relative overflow-hidden">
+    <!-- decorative blobs -->
+    <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-20 pointer-events-none" style="background:radial-gradient(circle,#0066FF,transparent 70%)"></div>
+    <div class="absolute -bottom-10 -right-10 w-64 h-64 rounded-full opacity-15 pointer-events-none" style="background:radial-gradient(circle,#00B4D8,transparent 70%)"></div>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-600 mb-4 px-3 py-1 rounded-full" style="background:rgba(0,102,255,.08);border:1px solid rgba(0,102,255,.16)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg>
+        Free · No Commitment · 30 Minutes
+      </p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight" style="font-family:'Plus Jakarta Sans',sans-serif">
+        Let's Talk About<br><span class="gradient-text">Your Ad Operations</span>
+      </h1>
+      <p class="text-slate-500 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+        In 30 minutes, our ad ops experts will map out exactly how Factor42 can handle your trafficking, reporting, and campaign management — so your team never misses a launch again.
+      </p>
+
+      <!-- Trust badges row -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <div class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          No cost, no obligation
+        </div>
+        <div class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Talk to a real Ad Ops expert
+        </div>
+        <div class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Response within 1 business hour
+        </div>
+        <div class="trust-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Serving 50+ agencies &amp; media companies
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT: FORM + SIDEBAR -->
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-10 items-start">
+
+      <!-- ── FORM ── -->
+      <div class="lg:col-span-3 reveal">
+        <div class="glass-card rounded-2xl p-8">
+          <h2 class="text-xl font-bold mb-1" style="font-family:'Plus Jakarta Sans',sans-serif">Tell us about your business</h2>
+          <p class="text-slate-500 text-sm mb-7">We'll use this to prepare a tailored session — no generic demos.</p>
+
+          <form id="consultation-form" novalidate="">
+
+            <!-- Row 1: Name + Title -->
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="f42-label" for="first-name">First Name <span>*</span></label>
+                <input class="f42-input" type="text" id="first-name" name="first_name" placeholder="Sarah" required="">
+              </div>
+              <div>
+                <label class="f42-label" for="last-name">Last Name <span>*</span></label>
+                <input class="f42-input" type="text" id="last-name" name="last_name" placeholder="Johnson" required="">
+              </div>
+            </div>
+
+            <!-- Row 2: Email + Phone -->
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="f42-label" for="email">Work Email <span>*</span></label>
+                <input class="f42-input" type="email" id="email" name="email" placeholder="sarah@company.com" required="">
+              </div>
+              <div>
+                <label class="f42-label" for="phone">Phone Number</label>
+                <input class="f42-input" type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <!-- Row 3: Company + Role -->
+            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+              <div>
+                <label class="f42-label" for="company">Company <span>*</span></label>
+                <input class="f42-input" type="text" id="company" name="company" placeholder="Acme Media Group" required="">
+              </div>
+              <div>
+                <label class="f42-label" for="role">Your Role <span>*</span></label>
+                <select class="f42-input" id="role" name="role" required="">
+                  <option value="" disabled="" selected="">Select your role</option>
+                  <option>CEO / Founder</option>
+                  <option>VP / Director of Marketing</option>
+                  <option>Head of Ad Operations</option>
+                  <option>Media Planner / Buyer</option>
+                  <option>Account Manager / Director</option>
+                  <option>Publisher / Sales Operations</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Company type -->
+            <div class="mb-5">
+              <label class="f42-label" for="company-type">Company Type <span>*</span></label>
+              <select class="f42-input" id="company-type" name="company_type" required="">
+                <option value="" disabled="" selected="">Select type</option>
+                <option>Independent Agency</option>
+                <option>Full-Service Agency</option>
+                <option>Media Company / Publisher</option>
+                <option>Brand / In-House Marketing Team</option>
+                <option>Ad Network / DSP</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <!-- Monthly Ad Spend -->
+            <div class="mb-5">
+              <label class="f42-label" for="ad-spend">Monthly Managed Ad Spend <span>*</span></label>
+              <select class="f42-input" id="ad-spend" name="monthly_ad_spend" required="">
+                <option value="" disabled="" selected="">Select range</option>
+                <option>Under $50K</option>
+                <option>$50K – $250K</option>
+                <option>$250K – $1M</option>
+                <option>$1M – $5M</option>
+                <option>$5M+</option>
+              </select>
+            </div>
+
+            <!-- Platforms -->
+            <div class="mb-5">
+              <label class="f42-label">Platforms You Advertise On <span>*</span></label>
+              <p class="text-xs text-slate-400 mb-3">Select all that apply</p>
+              <div class="flex flex-wrap gap-2">
+                <!-- Platform checkboxes -->
+                <input type="checkbox" class="platform-check" id="p-google" name="platforms" value="Google Ads"><label class="platform-label" for="p-google">
+                  <!-- Google Ads "A" logo -->
+                  <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                    <line x1="6" y1="27" x2="17" y2="5" stroke="#FBBC04" stroke-width="9" stroke-linecap="round"></line>
+                    <line x1="17" y1="5" x2="28" y2="27" stroke="#4285F4" stroke-width="9" stroke-linecap="round"></line>
+                    <circle cx="6" cy="27" r="6" fill="#34A853"></circle>
+                  </svg>
+                  Google Ads
+                </label>
+                <input type="checkbox" class="platform-check" id="p-meta" name="platforms" value="Meta"><label class="platform-label" for="p-meta">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                  Meta
+                </label>
+                <input type="checkbox" class="platform-check" id="p-dv360" name="platforms" value="DV360"><label class="platform-label" for="p-dv360">
+                  <!-- Display & Video 360 — Google Marketing Platform icon -->
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="4" fill="#1A73E8"></rect>
+                    <!-- screen shape -->
+                    <rect x="3" y="5" width="18" height="12" rx="1.5" fill="white" opacity="0.18"></rect>
+                    <rect x="3" y="5" width="18" height="12" rx="1.5" stroke="white" stroke-width="1.5"></rect>
+                    <!-- play triangle -->
+                    <path d="M10 9.5l5 2.5-5 2.5V9.5z" fill="white"></path>
+                    <!-- stand -->
+                    <rect x="9" y="17" width="6" height="1.5" rx="0.75" fill="white" opacity="0.7"></rect>
+                    <rect x="10.5" y="18.5" width="3" height="1" rx="0.5" fill="white" opacity="0.5"></rect>
+                  </svg>
+                  DV360
+                </label>
+                <input type="checkbox" class="platform-check" id="p-ttd" name="platforms" value="The Trade Desk"><label class="platform-label" for="p-ttd">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#2DBBFF"></rect><text x="12" y="16" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="Inter,sans-serif">TTD</text></svg>
+                  The Trade Desk
+                </label>
+                <input type="checkbox" class="platform-check" id="p-tiktok" name="platforms" value="TikTok"><label class="platform-label" for="p-tiktok">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#010101"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.78a4.85 4.85 0 0 1-1.02-.09z"></path></svg>
+                  TikTok
+                </label>
+                <input type="checkbox" class="platform-check" id="p-linkedin" name="platforms" value="LinkedIn"><label class="platform-label" for="p-linkedin">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                  LinkedIn
+                </label>
+                <input type="checkbox" class="platform-check" id="p-youtube" name="platforms" value="YouTube"><label class="platform-label" for="p-youtube">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+                  YouTube
+                </label>
+                <input type="checkbox" class="platform-check" id="p-reddit" name="platforms" value="Reddit"><label class="platform-label" for="p-reddit">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"></path></svg>
+                  Reddit
+                </label>
+                <input type="checkbox" class="platform-check" id="p-xandr" name="platforms" value="Xandr"><label class="platform-label" for="p-xandr">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#E87722"></rect><text x="12" y="16" text-anchor="middle" fill="white" font-size="8" font-weight="700" font-family="Inter,sans-serif">XA</text></svg>
+                  Xandr
+                </label>
+                <input type="checkbox" class="platform-check" id="p-amazon" name="platforms" value="Amazon DSP"><label class="platform-label" for="p-amazon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF9900"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.748.074-1.052-.872-1.238-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.057-1.641-.384-2.291-.385-.579-1.119-.819-1.765-.819-1.199 0-2.267.616-2.529 1.892-.054.285-.264.567-.55.582l-3.075-.333c-.259-.056-.548-.266-.472-.66.707-3.716 4.06-4.838 7.067-4.838 1.537 0 3.547.41 4.759 1.574 1.537 1.435 1.389 3.352 1.389 5.438v4.923c0 1.481.616 2.13 1.192 2.929.204.287.249.63-.01.839l-2.432 2.093z"></path></svg>
+                  Amazon DSP
+                </label>
+                <input type="checkbox" class="platform-check" id="p-other" name="platforms" value="Other"><label class="platform-label" for="p-other">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                  Other
+                </label>
+              </div>
+              <p id="platforms-error" class="text-xs text-red-500 mt-1 hidden">Please select at least one platform.</p>
+            </div>
+
+            <!-- Primary challenge -->
+            <div class="mb-5">
+              <label class="f42-label" for="challenge">What's your biggest ad ops challenge right now? <span>*</span></label>
+              <select class="f42-input" id="challenge" name="challenge" required="">
+                <option value="" disabled="" selected="">Select your challenge</option>
+                <option>Trafficking campaigns too slowly / missing launch dates</option>
+                <option>Team is overwhelmed — can't scale without hiring</option>
+                <option>Reporting is fragmented across platforms</option>
+                <option>Errors in campaign setup causing delivery issues</option>
+                <option>Can't optimize fast enough to hit KPIs</option>
+                <option>Looking for a full outsourced ad ops partner</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div class="mb-7">
+              <label class="f42-label" for="message">Anything else you'd like us to know?</label>
+              <textarea class="f42-input" id="message" name="message" rows="3" placeholder="Describe your current setup, team size, upcoming campaigns — anything that helps us prepare for the call."></textarea>
+            </div>
+
+            <!-- GDPR / consent -->
+            <label class="flex items-start gap-3 cursor-pointer mb-7 group">
+              <input type="checkbox" id="consent" name="consent" required="" class="mt-1 w-4 h-4 rounded accent-blue-600 flex-shrink-0">
+              <span class="text-xs text-slate-500 leading-relaxed">I agree that Factor42 may contact me regarding this consultation request. View our <a href="/privacy-policy" class="text-blue-600 underline hover:text-blue-800">Privacy Policy</a>. You can unsubscribe at any time.</span>
+            </label>
+
+            <p id="submit-error" class="hidden text-sm text-red-600 text-center mb-3 p-3 rounded-lg" style="background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.2)">
+              Something went wrong. Please try again or email us at <a href="mailto:hello@factor42media.com" class="underline">hello@factor42media.com</a>.
+            </p>
+
+            <button type="submit" class="btn-primary w-full text-white font-semibold text-base py-4 px-6 rounded-xl shadow-lg">
+              Book My Free Consultation →
+            </button>
+
+            <p class="text-center text-xs text-slate-400 mt-3">We'll reach out within 1 business hour to confirm your slot.</p>
+          </form>
+
+          <!-- SUCCESS STATE -->
+          <div id="success-panel" class="text-center py-10">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5" style="background:rgba(0,102,255,.1)">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">You're booked!</h3>
+            <p class="text-slate-500 text-sm mb-6 max-w-sm mx-auto">A member of our ad ops team will reach out within <strong>1 business hour</strong> to confirm your consultation time.</p>
+            <a href="/" class="inline-flex items-center gap-2 text-blue-600 text-sm font-semibold hover:underline">
+              ← Back to Factor42
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SIDEBAR ── -->
+      <aside class="lg:col-span-2 flex flex-col gap-6 reveal" style="transition-delay:.15s">
+
+        <!-- What to expect -->
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="font-bold text-base mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">What Happens on the Call</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(0,102,255,.1)">
+                <span class="text-xs font-bold text-blue-600">01</span>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">Ops Audit</p>
+                <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">We review your current ad ops workflow, platforms, and volume to find friction points.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(0,102,255,.1)">
+                <span class="text-xs font-bold text-blue-600">02</span>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">Custom Roadmap</p>
+                <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">You'll see exactly how Factor42 fits your workflow — from trafficking to cross-channel reporting.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style="background:rgba(0,102,255,.1)">
+                <span class="text-xs font-bold text-blue-600">03</span>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">Pricing Estimate</p>
+                <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Get a clear management fee + CPM estimate matched to your actual spend and campaign volume.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Stats -->
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="font-bold text-base mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Why Factor42</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-3 rounded-xl" style="background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.1)">
+              <p class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">4 hr</p>
+              <p class="text-xs text-slate-500 mt-1">Standard trafficking SLA</p>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.1)">
+              <p class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">99.9%</p>
+              <p class="text-xs text-slate-500 mt-1">Dashboard uptime SLA</p>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.1)">
+              <p class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">12+</p>
+              <p class="text-xs text-slate-500 mt-1">Platforms supported</p>
+            </div>
+            <div class="text-center p-3 rounded-xl" style="background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.1)">
+              <p class="text-2xl font-bold gradient-text-blue" style="font-family:'Plus Jakarta Sans',sans-serif">50+</p>
+              <p class="text-xs text-slate-500 mt-1">Agency &amp; media clients</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div class="glass-card rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <p class="text-sm text-slate-600 italic leading-relaxed mb-4">"Within the first week, Factor42 had our entire campaign workflow running smoother than anything we'd built in-house over 2 years. The consultation call alone saved us hours."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:linear-gradient(135deg,#0066FF,#00B4D8)">MR</div>
+            <div>
+              <p class="text-xs font-semibold text-gray-800">Marcus R.</p>
+              <p class="text-xs text-slate-400">VP of Operations, Digital Media Group</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security note -->
+        <div class="flex items-center gap-3 px-4 py-3 rounded-xl" style="background:rgba(255,255,255,.7);border:1px solid rgba(0,102,255,.1)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <p class="text-xs text-slate-500 leading-relaxed"><strong class="text-slate-700">Your data is safe.</strong> We never share or sell your information. See our <a href="/privacy-policy" class="text-blue-600 underline">Privacy Policy</a>.</p>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script is:inline>
+  // Scroll reveal with fallback
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Form validation + submission
+  const form = document.getElementById('consultation-form');
+  const successPanel = document.getElementById('success-panel');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate platform selection
+    const platforms = form.querySelectorAll('input[name="platforms"]:checked');
+    const platformError = document.getElementById('platforms-error');
+    if (platforms.length === 0) {
+      platformError.classList.remove('hidden');
+      platformError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    } else {
+      platformError.classList.add('hidden');
+    }
+
+    // Validate consent
+    if (!form.consent.checked) {
+      form.consent.focus();
+      return;
+    }
+
+    // Basic HTML5 validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const payload = {
+      _template:        'email-consultation-confirmation.html',
+      first_name:       form.first_name.value.trim(),
+      last_name:        form.last_name.value.trim(),
+      email:            form.email.value.trim(),
+      phone:            form.phone.value.trim(),
+      company:          form.company.value.trim(),
+      role:             form.role.value,
+      company_type:     form.company_type.value,
+      monthly_ad_spend: form.monthly_ad_spend.value,
+      platforms:        Array.from(platforms).map(cb => cb.value),
+      challenge:        form.challenge.value,
+      message:          form.message.value.trim(),
+    };
+
+    fetch('/api/submit', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload),
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Server error: ' + res.status);
+        form.style.display = 'none';
+        successPanel.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(() => {
+        btn.textContent = 'Book My Free Consultation →';
+        btn.disabled = false;
+        const errEl = document.getElementById('submit-error');
+        errEl.classList.remove('hidden');
+        errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+  });
+</script>
+<style is:global>
+#success-panel { display: none; }
+</style>
+</BaseLayout>

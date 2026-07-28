@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  lastUpdated?: string;
+}
+const { title, description, lastUpdated } = Astro.props;
+---
+<BaseLayout title={`${title} — Factor42`} description={description ?? title}>
+  <main class="pt-24 pb-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-1 font-display">{title}</h1>
+      {lastUpdated && <p class="text-sm text-slate-400 mb-8">Last Updated: {lastUpdated}</p>}
+      <div class="prose legal-prose">
+        <slot />
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  /* Legal pages: slightly tighter numbered-section prose. */
+  .legal-prose h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .legal-prose h3 { font-size: 1rem; }
+  .legal-prose a { color: #0066ff; text-decoration: underline; }
+</style>

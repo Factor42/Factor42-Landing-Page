@@ -1,0 +1,135 @@
+# Sveltia CMS configuration (Decap-compatible).
+# Editors manage blog posts here; saving commits Markdown to the git repo,
+# which triggers a Cloudflare Pages rebuild.
+#
+# Fields are kept flat to match the Astro content-collection frontmatter.
+
+backend:
+  name: github
+  repo: nhattran72822-del/Factor42-Landing-Page
+  branch: main
+  # GitHub App proxy (Cloudflare Pages Functions) — editors log in via Cloudflare
+  # Access (email OTP); the proxy commits as the bot. See docs/CMS-AUTH.md.
+  # Update the domain if it differs from the production site.
+  base_url: https://factor42media.com
+  auth_endpoint: api/cms/auth
+  api_root: https://factor42media.com/api/cms/github
+
+# Uncomment for local editing without GitHub (Chromium browsers, "Work with Local Repository").
+# Only active on localhost; ignored in production.
+local_backend: true
+
+# Images embedded in post bodies land here.
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: blog
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    description: "Articles shown on /blog and their individual pages."
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    preview_path: "blog/{{slug}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { name: title, label: "Title", widget: string }
+      - { name: description, label: "SEO description", widget: text, hint: "Shown on the card and in Google results — aim for ~150 characters." }
+      - { name: subtitle, label: "Hero subtitle", widget: text, required: false, hint: "Optional. Appears under the title on the post page." }
+
+      - { name: category, label: "Category label", widget: string, hint: 'The coloured pill text, e.g. "Cost & Pricing".' }
+      - name: group
+        label: "Filter group"
+        widget: select
+        hint: "Which filter tab this post appears under on /blog."
+        options:
+          - { label: "Small Business", value: "smb" }
+          - { label: "Industry Research", value: "industry" }
+          - { label: "Ad Operations", value: "ad-ops" }
+          - { label: "AI & Technology", value: "ai" }
+          - { label: "Programmatic", value: "programmatic" }
+          - { label: "Media & Publishing", value: "media" }
+      - name: theme
+        label: "Colour theme"
+        widget: select
+        default: "blue"
+        hint: "Sets the card + hero gradient and pill colour."
+        options: ["blue", "red", "purple", "sky", "indigo", "teal", "orange"]
+
+      - { name: date, label: "Publish date", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: true }
+      - { name: readMinutes, label: "Read time (minutes)", widget: number, value_type: int, default: 5, min: 1 }
+      - { name: author, label: "Author", widget: string, default: "Factor42 Research" }
+      - { name: draft, label: "Draft (hide from site)", widget: boolean, default: false }
+
+      - { name: cardStat, label: "Card stat", widget: string, required: false, hint: "Big number on the /blog card, e.g. 70%+" }
+      - { name: cardStatLabel, label: "Card stat label", widget: string, required: false, hint: "e.g. Typical marketing overpayment" }
+
+      - name: stats
+        label: "Stat strip (post page)"
+        label_singular: "Stat"
+        widget: list
+        max: 3
+        required: false
+        summary: "{{fields.value}} — {{fields.label}}"
+        fields:
+          - { name: value, label: "Value", widget: string }
+          - { name: label, label: "Label", widget: string }
+
+      - { name: featured, label: "Feature at top of /blog", widget: boolean, default: false }
+      - { name: featuredStat, label: "Featured stat", widget: string, required: false, hint: "Only used when featured is on, e.g. $2.4B" }
+      - { name: featuredStatLabel, label: "Featured stat label", widget: string, required: false }
+
+      - { name: body, label: "Body", widget: markdown, hint: "The article itself. Use ## for section headings." }
+
+  - name: jobs
+    label: "Job Listings"
+    label_singular: "Job"
+    description: "Open roles shown on /careers. Delete a role to close it."
+    folder: "src/content/jobs"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    preview_path: "careers/{{slug}}"
+    fields:
+      - { name: title, label: "Job title", widget: string }
+      - name: department
+        label: "Department"
+        widget: select
+        options:
+          - { label: "Ad Operations", value: "ad-ops" }
+          - { label: "Sales & Marketing", value: "sales" }
+          - { label: "Engineering & AI", value: "engineering" }
+          - { label: "Finance & Accounting", value: "finance" }
+          - { label: "People & Culture", value: "people" }
+          - { label: "Client Success", value: "client-success" }
+      - { name: location, label: "Location", widget: string, default: "Remote" }
+      - name: type
+        label: "Employment type"
+        widget: select
+        default: "Full-time"
+        options: ["Full-time", "Part-time", "Contract", "Internship"]
+      - { name: applyEmail, label: "Apply-to email", widget: string, default: "careers@factor42media.com" }
+      - { name: order, label: "Sort order", widget: number, value_type: int, default: 0, hint: "Lower numbers appear first." }
+      - { name: draft, label: "Draft (hide from site)", widget: boolean, default: false }
+      - { name: body, label: "Description", widget: markdown }
+
+  - name: legal
+    label: "Legal Pages"
+    label_singular: "Legal Page"
+    description: "Privacy Policy, Terms, SLA, Security. Edit the text; the URLs are fixed."
+    files:
+      - { name: privacy-policy, label: "Privacy Policy", file: "src/content/legal/privacy-policy.md", fields: &legalFields [
+          { name: title, label: "Title", widget: string },
+          { name: description, label: "SEO description", widget: text, required: false },
+          { name: lastUpdated, label: "Last updated", widget: string, hint: 'e.g. "April 12, 2026"' },
+          { name: body, label: "Content", widget: markdown },
+        ] }
+      - { name: terms-of-service, label: "Terms of Service", file: "src/content/legal/terms-of-service.md", fields: *legalFields }
+      - { name: security, label: "Security Policy", file: "src/content/legal/security.md", fields: *legalFields }
+      - { name: sla, label: "Service Level Agreement", file: "src/content/legal/sla.md", fields: *legalFields }

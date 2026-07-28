@@ -1,0 +1,69 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import BlogHero from '../components/BlogHero.astro';
+import StatStrip from '../components/StatStrip.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  subtitle?: string;
+  category: string;
+  date: Date;
+  readMinutes: number;
+  author: string;
+  heroGradient: string;
+  stats: { value: string; label: string }[];
+}
+const {
+  title,
+  description,
+  subtitle,
+  category,
+  date,
+  readMinutes,
+  author,
+  heroGradient,
+  stats,
+} = Astro.props;
+const pageTitle = `${title} — Factor42 Blog`;
+---
+<BaseLayout title={pageTitle} description={description} ogType="article">
+  <main class="pt-20">
+    <BlogHero
+      category={category}
+      title={title}
+      subtitle={subtitle ?? description}
+      author={author}
+      date={date}
+      readMinutes={readMinutes}
+      heroGradient={heroGradient}
+    />
+    <StatStrip stats={stats} />
+
+    <article class="py-14 px-6">
+      <div class="max-w-3xl mx-auto prose">
+        <slot />
+
+        {/* Standard post-footer CTA — previously copy-pasted into every post,
+            now defined once here so it can never drift between posts. */}
+        <div
+          class="mt-10 p-6 rounded-2xl text-center"
+          style="background:rgba(0,102,255,.06);border:1px solid rgba(0,102,255,.15)">
+          <p class="text-sm font-semibold text-gray-800 mb-2">
+            See what running every channel from one place would cost you.
+          </p>
+          <a href="/" class="text-sm font-semibold text-blue-600 hover:underline">
+            Explore Factor42 Media →
+          </a>
+          <div class="mt-4">
+            <a
+              href="/consultation"
+              class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white">
+              Book a Free Consultation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

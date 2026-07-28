@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const deptLabels = {
+  'ad-ops': 'Ad Operations',
+  sales: 'Sales & Marketing',
+  engineering: 'Engineering & AI',
+  finance: 'Finance & Accounting',
+  people: 'People & Culture',
+  'client-success': 'Client Success',
+};
+const jobs = (await getCollection('jobs', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title)
+);
+---
+<BaseLayout title={"Careers — Factor42"} description={"Join Factor42 — a fully remote team building the future of digital ad operations. We use AI to maximize impact, but our people make every decision that matters."}>
+<!-- HEADER -->
+
+
+<main class="pt-20">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="grid-bg py-20 px-6 relative overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20 pointer-events-none" style="background:radial-gradient(circle,#0066FF,transparent 70%)"></div>
+    <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-15 pointer-events-none" style="background:radial-gradient(circle,#00B4D8,transparent 70%)"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-600 mb-5 px-3 py-1 rounded-full" style="background:rgba(0,102,255,.08);border:1px solid rgba(0,102,255,.16)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        We're Hiring — 100% Remote
+      </p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="font-family:'Plus Jakarta Sans',sans-serif">
+        Build the Future of<br><span class="gradient-text">Ad Operations.</span><br>From Anywhere.
+      </h1>
+      <p class="text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        At Factor42, we use AI everywhere we can — so our people can focus on what only humans do best: judgment, relationships, and decisions that genuinely improve our customers' outcomes.
+      </p>
+
+      <!-- Quick stats -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          Async-first culture
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Work from anywhere
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          AI-powered workflows
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.14);color:#334155">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          High-growth
+        </div>
+      </div>
+
+      <a href="#open-roles" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white shadow-lg">
+        See Open Roles
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ CULTURE ═══ -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Our Culture</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Humans First. AI Always.</h2>
+        <p class="text-slate-500 max-w-xl mx-auto text-base leading-relaxed">We believe the best work happens when talented people are freed from busywork. AI handles the repetitive — our team handles everything that matters.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="value-card reveal">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Humans Make the Call</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">AI drafts, suggests, and accelerates. But every decision that touches a customer — every strategy, every escalation, every relationship — is owned by a human on our team.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.08s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">AI as Your Co-Pilot</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We embed AI into every workflow — from campaign QA to report generation. Our people don't compete with AI; they're amplified by it to deliver 10× the output.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.16s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Fully Remote, Genuinely Flexible</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We're async-first. Work from wherever you do your best thinking. No mandatory facetime — we trust our team and measure what actually matters: outcomes.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.04s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Radically Inclusive Hiring</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">We hire based on capability and drive, not geography or pedigree. The best ad ops minds are everywhere — we want them all on our team.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.12s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Move Fast, Own Your Work</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">No bureaucracy, no 6-level approvals. You'll have real responsibility from day one, and your work visibly moves the needle for 50+ agencies and media companies.</p>
+        </div>
+
+        <div class="value-card reveal" style="transition-delay:.2s">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(0,102,255,.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3 class="font-bold text-base mb-2" style="font-family:'Plus Jakarta Sans',sans-serif">Always Learning</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">Paid learning budget, access to the latest AI tools, and a team that shares knowledge openly. We grow together — and we expect you to outgrow your role on purpose.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section class="py-16 px-6" style="background:rgba(255,255,255,.5)">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Benefits</p>
+        <h2 class="text-3xl font-bold" style="font-family:'Plus Jakarta Sans',sans-serif">Everything You Need to Do Your Best Work</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 reveal" style="transition-delay:.1s">
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Remote-first</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Work from home, a café, or anywhere with a good connection</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Home Office Stipend</p>
+          <p class="text-xs text-slate-500 leading-relaxed">$1,000 setup allowance + annual refresh budget</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Learning Budget</p>
+          <p class="text-xs text-slate-500 leading-relaxed">$1,500/year for courses, certifications, and conferences</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Health Coverage</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Comprehensive medical, dental, and vision benefits</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Flexible PTO</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Unlimited PTO policy — we trust you to recharge when you need it</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <p class="text-sm font-semibold text-gray-800">AI Tools Access</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Full access to the latest AI tools — Claude, GPT, Perplexity, and more</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Competitive Pay</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Market-rate salaries benchmarked globally + performance bonuses</p>
+        </div>
+
+        <div class="flex flex-col items-start gap-2 p-5 rounded-2xl" style="background:rgba(255,255,255,.85);border:1px solid rgba(0,102,255,.1)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <p class="text-sm font-semibold text-gray-800">Annual Retreats</p>
+          <p class="text-xs text-slate-500 leading-relaxed">We get together once a year — all expenses paid, somewhere great</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OPEN ROLES ═══ -->
+  <section id="open-roles" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">Open Positions</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3" style="font-family:'Plus Jakarta Sans',sans-serif">Find Your Role</h2>
+        <p class="text-slate-500 max-w-lg mx-auto text-base">All positions are fully remote and open to candidates worldwide.</p>
+      </div>
+
+      <!-- Filter pills -->
+      <div class="reveal mb-10" style="transition-delay:.05s">
+        <div class="flex flex-wrap gap-2" id="filter-pills">
+          <button class="filter-pill active" data-dept="all">All Departments</button>
+          <button class="filter-pill" data-dept="ad-ops">Ad Operations</button>
+          <button class="filter-pill" data-dept="sales">Sales &amp; Marketing</button>
+          <button class="filter-pill" data-dept="engineering">Engineering &amp; AI</button>
+          <button class="filter-pill" data-dept="finance">Finance &amp; Accounting</button>
+          <button class="filter-pill" data-dept="people">People &amp; Culture</button>
+          <button class="filter-pill" data-dept="client-success">Client Success</button>
+        </div>
+      </div>
+
+      {jobs.length > 0 ? (
+        <div class="grid sm:grid-cols-2 gap-5 reveal" style="transition-delay:.1s" id="jobs-grid">
+          {jobs.map((job) => (
+            <a href={`/careers/${job.id}`} class="job-card block" data-dept={job.data.department} data-title={job.data.title.toLowerCase()}>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="dept-badge" style="background:rgba(0,102,255,.1);color:#0066FF">{deptLabels[job.data.department]}</span>
+                <span class="text-xs text-slate-400">{job.data.type}</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base mb-1 font-display">{job.data.title}</h3>
+              <div class="flex items-center gap-2 text-xs text-slate-500">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {job.data.location}
+                <span class="ml-auto text-blue-600 font-semibold flex items-center gap-1">View role →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20 reveal" style="transition-delay:.1s">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:rgba(0,102,255,.08)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><line x1="12" y1="12" x2="12" y2="16"></line><line x1="10" y1="14" x2="14" y2="14"></line></svg>
+          </div>
+          <p class="text-lg font-semibold text-gray-800 mb-2 font-display">No Current Openings</p>
+          <p class="text-slate-500 text-sm max-w-sm mx-auto leading-relaxed">We don't have any open positions right now, but we're always growing. Check back soon — or send us an open application below.</p>
+        </div>
+      )}
+
+      <div id="jobs-empty" class="hidden text-center py-16">
+        <p class="text-slate-500 font-medium">No roles in this department right now.</p>
+        <button id="jobs-show-all" class="mt-3 text-blue-600 text-sm font-semibold hover:underline">Show all departments</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ OPEN APPLICATION ═══ -->
+  <section class="py-16 px-6" style="background:rgba(255,255,255,.5)">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background:rgba(0,102,255,.1)">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="font-family:'Plus Jakarta Sans',sans-serif">Don't See a Fit?</h2>
+      <p class="text-slate-500 mb-8 leading-relaxed">We're always looking for exceptional people. If you believe in what we're building — AI-augmented ad ops run by people who genuinely care about outcomes — send us your story.</p>
+      <a href="mailto:careers@factor42media.com" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white shadow-md">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Send an Open Application
+      </a>
+      <p class="text-xs text-slate-400 mt-4">careers@factor42media.com — we read every email</p>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script is:inline>
+  // Scroll reveal with fallback
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+  setTimeout(() => revealEls.forEach(el => el.classList.add('revealed')), 400);
+
+  // Department filter
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const jobCards = document.querySelectorAll('#jobs-grid .job-card');
+  const emptyMsg = document.getElementById('jobs-empty');
+  function filterJobs(dept) {
+    filterPills.forEach((p) => p.classList.toggle('active', p.dataset.dept === dept));
+    let visible = 0;
+    jobCards.forEach((c) => {
+      const show = dept === 'all' || c.dataset.dept === dept;
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (emptyMsg) emptyMsg.classList.toggle('hidden', visible > 0 || jobCards.length === 0);
+  }
+  filterPills.forEach((pill) => pill.addEventListener('click', () => filterJobs(pill.dataset.dept)));
+  document.getElementById('jobs-show-all')?.addEventListener('click', () => filterJobs('all'));
+</script>
+<style is:global>
+#no-results { display: none; }
+</style>
+</BaseLayout>
