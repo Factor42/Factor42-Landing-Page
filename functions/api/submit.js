@@ -82,40 +82,8 @@ export async function onRequestPost(context) {
     },
   ];
 
-  // Send via Mailjet
-  const mjRes = await fetch('https://api.mailjet.com/v3.1/send', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + btoa(`${env.MJ_APIKEY_PUBLIC}:${env.MJ_APIKEY_PRIVATE}`),
-    },
-    body: JSON.stringify({ Messages: messages }),
-  });
-
-  if (!mjRes.ok) {
-    const detail = await mjRes.text();
-    console.error('Mailjet error', mjRes.status, detail);
-    // TEMP DEBUG — remove after diagnosing deploy. Surfaces the real cause.
-    return json(
-      {
-        error: 'Email delivery failed',
-        _debug: {
-          mjStatus: mjRes.status,
-          mjDetail: detail.slice(0, 400),
-          env: {
-            MJ_APIKEY_PUBLIC: !!env.MJ_APIKEY_PUBLIC,
-            MJ_APIKEY_PRIVATE: !!env.MJ_APIKEY_PRIVATE,
-            MJ_FROM_EMAIL: env.MJ_FROM_EMAIL || null,
-            MJ_FROM_NAME: env.MJ_FROM_NAME || null,
-            TEAM_EMAIL: !!env.TEAM_EMAIL,
-          },
-        },
-      },
-      502
-    );
-  }
-
-  // Store in D1 (best-effort — never fail the request on a logging error)
+  // Capture the lead in D1 FIRST, so an email outage never loses it.
+  let stored = false;
   if (env.DB) {
     try {
       await env.DB.prepare(
@@ -141,10 +109,30 @@ export async function onRequestPost(context) {
           JSON.stringify(data)
         )
         .run();
+      stored = true;
     } catch (e) {
       console.error('D1 insert failed', e);
     }
   }
 
-  return json({ ok: true });
+  // Send confirmation + team notification via Mailjet.
+  let emailed = false;
+  try {
+    const mjRes = await fetch('https://api.mailjet.com/v3.1/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(`${env.MJ_APIKEY_PUBLIC}:${env.MJ_APIKEY_PRIVATE}`),
+      },
+      body: JSON.stringify({ Messages: messages }),
+    });
+    if (mjRes.ok) emailed = true;
+    else console.error('Mailjet error', mjRes.status, await mjRes.text());
+  } catch (e) {
+    console.error('Mailjet request failed', e);
+  }
+
+  // Succeed if the lead was captured or emailed; fail only if both failed.
+  if (!stored && !emailed) return json({ error: 'Submission failed' }, 502);
+  return json({ ok: true, emailed, stored });
 }
