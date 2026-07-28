@@ -29,13 +29,13 @@ In **Pages → Settings → Functions → D1 database bindings**, bind
 ## 3. Environment variables (Pages → Settings → Environment variables)
 Mark keys/secrets as **encrypted**.
 
-**Form handler (Mailjet):**
+**Form handler (Postmark):**
 | Name | Value |
 |---|---|
-| `MJ_APIKEY_PUBLIC` | Mailjet API key (public) |
-| `MJ_APIKEY_PRIVATE` | Mailjet secret key |
-| `MJ_FROM_EMAIL` | a **verified** Mailjet sender address |
-| `MJ_FROM_NAME` | e.g. `Factor42` |
+| `POSTMARK_SERVER_TOKEN` | Postmark **Server** API token (mark as **secret**) |
+| `FROM_EMAIL` | sender on a **domain/signature verified in Postmark** |
+| `FROM_NAME` | e.g. `Factor42` |
+| `POSTMARK_MESSAGE_STREAM` | optional; defaults to `outbound` |
 | `TEAM_EMAIL` | where submission notifications go |
 
 **CMS auth (GitHub App bot)** — see [CMS-AUTH.md](CMS-AUTH.md) for the full list:
@@ -58,7 +58,7 @@ steps in [CMS-AUTH.md](CMS-AUTH.md). (The `/api/submit` form endpoint stays publ
 
 ## 6. Decommission
 Once forms + redirects are confirmed in production, retire the AWS Lambda and its S3
-bucket. Keep Mailjet (unchanged).
+bucket.
 
 ## Local development
 ```bash
