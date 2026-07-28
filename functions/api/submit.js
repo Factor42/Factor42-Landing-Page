@@ -95,7 +95,24 @@ export async function onRequestPost(context) {
   if (!mjRes.ok) {
     const detail = await mjRes.text();
     console.error('Mailjet error', mjRes.status, detail);
-    return json({ error: 'Email delivery failed' }, 502);
+    // TEMP DEBUG — remove after diagnosing deploy. Surfaces the real cause.
+    return json(
+      {
+        error: 'Email delivery failed',
+        _debug: {
+          mjStatus: mjRes.status,
+          mjDetail: detail.slice(0, 400),
+          env: {
+            MJ_APIKEY_PUBLIC: !!env.MJ_APIKEY_PUBLIC,
+            MJ_APIKEY_PRIVATE: !!env.MJ_APIKEY_PRIVATE,
+            MJ_FROM_EMAIL: env.MJ_FROM_EMAIL || null,
+            MJ_FROM_NAME: env.MJ_FROM_NAME || null,
+            TEAM_EMAIL: !!env.TEAM_EMAIL,
+          },
+        },
+      },
+      502
+    );
   }
 
   // Store in D1 (best-effort — never fail the request on a logging error)
