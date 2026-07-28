@@ -20,8 +20,7 @@ domain's DNS is already on Cloudflare, this is a couple of clicks.
 
 ## 2. Create the D1 database (form submissions)
 ```bash
-wrangler d1 create factor42-submissions          # copy the database_id it prints
-# paste it into wrangler.toml -> [[d1_databases]].database_id
+wrangler d1 create factor42-submissions
 wrangler d1 execute factor42-submissions --remote --file=migrations/0001_submissions.sql
 ```
 In **Pages → Settings → Functions → D1 database bindings**, bind
@@ -64,7 +63,7 @@ bucket. Keep Mailjet (unchanged).
 ## Local development
 ```bash
 npm run dev                       # Astro only (no Functions)
-npx wrangler pages dev            # full stack: static + Functions + D1 (needs wrangler.toml bindings)
+npx wrangler pages dev dist-astro --d1 DB=<local-or-remote-d1-id>   # optional: full stack locally
 ```
 Regenerate derived files if sources change:
 ```bash
