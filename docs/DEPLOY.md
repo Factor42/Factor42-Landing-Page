@@ -29,12 +29,13 @@ In **Pages → Settings → Functions → D1 database bindings**, bind
 ## 3. Environment variables (Pages → Settings → Environment variables)
 Mark keys/secrets as **encrypted**.
 
-**Form handler (Resend):**
+**Form handler (Postmark):**
 | Name | Value |
 |---|---|
-| `RESEND_API_KEY` | Resend API key (mark as **secret**) |
-| `FROM_EMAIL` | sender address on a **domain verified in Resend** |
+| `POSTMARK_SERVER_TOKEN` | Postmark **Server** API token (mark as **secret**) |
+| `FROM_EMAIL` | sender on a **domain/signature verified in Postmark** |
 | `FROM_NAME` | e.g. `Factor42` |
+| `POSTMARK_MESSAGE_STREAM` | optional; defaults to `outbound` |
 | `TEAM_EMAIL` | where submission notifications go |
 
 **CMS auth (GitHub App bot)** — see [CMS-AUTH.md](CMS-AUTH.md) for the full list:

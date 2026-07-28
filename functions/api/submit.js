@@ -4,14 +4,15 @@
  *   2. sends a notification email to the team
  *   3. stores the submission as a row in D1 (done first, so a mail outage
  *      never loses the lead)
- * via Resend (https://resend.com). Same-origin, so no CORS needed.
+ * via Postmark (https://postmarkapp.com). Same-origin, so no CORS needed.
  *
  * Env (Pages settings):
- *   RESEND_API_KEY   - Resend API key (secret)
- *   FROM_EMAIL       - sender address on a domain verified in Resend
- *   FROM_NAME        - sender display name (defaults to "Factor42")
- *   TEAM_EMAIL       - where notifications go
- *   DB               - D1 binding (optional; write is best-effort)
+ *   POSTMARK_SERVER_TOKEN   - Postmark Server API token (secret)
+ *   FROM_EMAIL              - sender on a domain/signature verified in Postmark
+ *   FROM_NAME               - sender display name (defaults to "Factor42")
+ *   POSTMARK_MESSAGE_STREAM - optional; defaults to "outbound" (transactional)
+ *   TEAM_EMAIL              - where notifications go
+ *   DB                      - D1 binding (optional; write is best-effort)
  */
 import { contactConfirmation, consultationConfirmation } from './_email-templates.js';
 
@@ -44,22 +45,33 @@ function notificationHtml(kind, d) {
   return `<div style="font-family:Inter,Arial,sans-serif"><h2>New ${esc(kind)} submission</h2><table>${rows}</table></div>`;
 }
 
-// Send one email via Resend (https://resend.com). Returns the fetch Response.
-function sendResend(env, { to, subject, html, replyTo }) {
-  return fetch('https://api.resend.com/emails', {
+// Send one email via Postmark (https://postmarkapp.com).
+// Postmark can return HTTP 200 with a non-zero ErrorCode, so success requires
+// both a 2xx status and ErrorCode 0. Returns { ok, status, detail }.
+async function sendPostmark(env, { to, subject, html, replyTo }) {
+  const res = await fetch('https://api.postmarkapp.com/email', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      Accept: 'application/json',
       'Content-Type': 'application/json',
+      'X-Postmark-Server-Token': env.POSTMARK_SERVER_TOKEN,
     },
     body: JSON.stringify({
-      from: `${env.FROM_NAME || 'Factor42'} <${env.FROM_EMAIL}>`,
-      to: [to],
-      subject,
-      html,
-      ...(replyTo ? { reply_to: replyTo } : {}),
+      From: `${env.FROM_NAME || 'Factor42'} <${env.FROM_EMAIL}>`,
+      To: to,
+      Subject: subject,
+      HtmlBody: html,
+      MessageStream: env.POSTMARK_MESSAGE_STREAM || 'outbound',
+      ...(replyTo ? { ReplyTo: replyTo } : {}),
     }),
   });
+  let detail = null;
+  try {
+    detail = await res.json();
+  } catch {
+    /* non-JSON error body */
+  }
+  return { ok: res.ok && detail?.ErrorCode === 0, status: res.status, detail };
 }
 
 export async function onRequestPost(context) {
@@ -114,18 +126,18 @@ export async function onRequestPost(context) {
     }
   }
 
-  // Send confirmation (to submitter) + notification (to team) via Resend.
+  // Send confirmation (to submitter) + notification (to team) via Postmark.
   let emailed = false;
   try {
     const [confirmation, notification] = await Promise.all([
-      sendResend(env, {
+      sendPostmark(env, {
         to: data.email,
         subject: isConsultation
           ? 'Your Factor42 consultation request'
           : 'We received your message — Factor42',
         html: render(template, data),
       }),
-      sendResend(env, {
+      sendPostmark(env, {
         to: env.TEAM_EMAIL,
         subject: `New ${kind} submission${data.company ? ` — ${data.company}` : ''}`,
         html: notificationHtml(kind, data),
@@ -135,16 +147,16 @@ export async function onRequestPost(context) {
     emailed = confirmation.ok && notification.ok;
     if (!emailed) {
       console.error(
-        'Resend error',
+        'Postmark error',
         confirmation.status,
-        await confirmation.text().catch(() => ''),
+        JSON.stringify(confirmation.detail),
         '|',
         notification.status,
-        await notification.text().catch(() => '')
+        JSON.stringify(notification.detail)
       );
     }
   } catch (e) {
-    console.error('Resend request failed', e);
+    console.error('Postmark request failed', e);
   }
 
   // Succeed if the lead was captured or emailed; fail only if both failed.
