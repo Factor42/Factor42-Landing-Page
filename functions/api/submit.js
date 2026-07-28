@@ -2,14 +2,16 @@
  * Form handler (replaces the AWS Lambda). On POST it:
  *   1. sends a confirmation email to the submitter (rendered from the HTML template)
  *   2. sends a notification email to the team
- *   3. stores the submission as a row in D1
- * via Mailjet's Send API v3.1. Same-origin, so no CORS needed.
+ *   3. stores the submission as a row in D1 (done first, so a mail outage
+ *      never loses the lead)
+ * via Resend (https://resend.com). Same-origin, so no CORS needed.
  *
  * Env (Pages settings):
- *   MJ_APIKEY_PUBLIC, MJ_APIKEY_PRIVATE  - Mailjet API key pair (secrets)
- *   MJ_FROM_EMAIL, MJ_FROM_NAME          - verified Mailjet sender
- *   TEAM_EMAIL                           - where notifications go
- *   DB                                   - D1 binding (optional; write is best-effort)
+ *   RESEND_API_KEY   - Resend API key (secret)
+ *   FROM_EMAIL       - sender address on a domain verified in Resend
+ *   FROM_NAME        - sender display name (defaults to "Factor42")
+ *   TEAM_EMAIL       - where notifications go
+ *   DB               - D1 binding (optional; write is best-effort)
  */
 import { contactConfirmation, consultationConfirmation } from './_email-templates.js';
 
@@ -42,6 +44,24 @@ function notificationHtml(kind, d) {
   return `<div style="font-family:Inter,Arial,sans-serif"><h2>New ${esc(kind)} submission</h2><table>${rows}</table></div>`;
 }
 
+// Send one email via Resend (https://resend.com). Returns the fetch Response.
+function sendResend(env, { to, subject, html, replyTo }) {
+  return fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: `${env.FROM_NAME || 'Factor42'} <${env.FROM_EMAIL}>`,
+      to: [to],
+      subject,
+      html,
+      ...(replyTo ? { reply_to: replyTo } : {}),
+    }),
+  });
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -60,27 +80,6 @@ export async function onRequestPost(context) {
     data._template === 'email-consultation-confirmation.html' || 'challenge' in data || 'role' in data;
   const kind = isConsultation ? 'consultation' : 'contact';
   const template = isConsultation ? consultationConfirmation : contactConfirmation;
-
-  const name = [data.first_name, data.last_name].filter(Boolean).join(' ').trim();
-  const from = { Email: env.MJ_FROM_EMAIL, Name: env.MJ_FROM_NAME || 'Factor42' };
-
-  const messages = [
-    {
-      From: from,
-      To: [{ Email: data.email, Name: name || data.email }],
-      Subject: isConsultation
-        ? 'Your Factor42 consultation request'
-        : 'We received your message — Factor42',
-      HTMLPart: render(template, data),
-    },
-    {
-      From: from,
-      To: [{ Email: env.TEAM_EMAIL, Name: 'Factor42 Team' }],
-      ReplyTo: { Email: data.email, Name: name || data.email },
-      Subject: `New ${kind} submission${data.company ? ` — ${data.company}` : ''}`,
-      HTMLPart: notificationHtml(kind, data),
-    },
-  ];
 
   // Capture the lead in D1 FIRST, so an email outage never loses it.
   let stored = false;
@@ -115,21 +114,37 @@ export async function onRequestPost(context) {
     }
   }
 
-  // Send confirmation + team notification via Mailjet.
+  // Send confirmation (to submitter) + notification (to team) via Resend.
   let emailed = false;
   try {
-    const mjRes = await fetch('https://api.mailjet.com/v3.1/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Basic ' + btoa(`${env.MJ_APIKEY_PUBLIC}:${env.MJ_APIKEY_PRIVATE}`),
-      },
-      body: JSON.stringify({ Messages: messages }),
-    });
-    if (mjRes.ok) emailed = true;
-    else console.error('Mailjet error', mjRes.status, await mjRes.text());
+    const [confirmation, notification] = await Promise.all([
+      sendResend(env, {
+        to: data.email,
+        subject: isConsultation
+          ? 'Your Factor42 consultation request'
+          : 'We received your message — Factor42',
+        html: render(template, data),
+      }),
+      sendResend(env, {
+        to: env.TEAM_EMAIL,
+        subject: `New ${kind} submission${data.company ? ` — ${data.company}` : ''}`,
+        html: notificationHtml(kind, data),
+        replyTo: data.email,
+      }),
+    ]);
+    emailed = confirmation.ok && notification.ok;
+    if (!emailed) {
+      console.error(
+        'Resend error',
+        confirmation.status,
+        await confirmation.text().catch(() => ''),
+        '|',
+        notification.status,
+        await notification.text().catch(() => '')
+      );
+    }
   } catch (e) {
-    console.error('Mailjet request failed', e);
+    console.error('Resend request failed', e);
   }
 
   // Succeed if the lead was captured or emailed; fail only if both failed.
