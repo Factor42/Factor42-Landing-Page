@@ -39,7 +39,9 @@ const jsonToB64url = (obj) => bytesToB64url(encoder.encode(JSON.stringify(obj)))
 
 // ---------- GitHub App JWT + installation token ----------
 function pemToDer(pem) {
-  const body = pem
+  const body = (pem || '')
+    .replace(/\\r/g, '')
+    .replace(/\\n/g, '\n') // tolerate keys stored with literal "\n" instead of newlines
     .replace(/-----BEGIN [^-]+-----/, '')
     .replace(/-----END [^-]+-----/, '')
     .replace(/\s+/g, '');
