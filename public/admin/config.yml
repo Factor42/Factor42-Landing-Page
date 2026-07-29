@@ -6,7 +6,7 @@
 
 backend:
   name: github
-  repo: nhattran72822-del/Factor42-Landing-Page
+  repo: Factor42/Factor42-Landing-Page
   branch: main
   # GitHub App proxy (Cloudflare Pages Functions) — editors log in via Cloudflare
   # Access (email OTP); the proxy commits as the bot. See docs/CMS-AUTH.md.
