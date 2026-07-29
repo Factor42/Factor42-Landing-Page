@@ -26,7 +26,12 @@ export async function onRequest(context) {
   const access = await verifyAccess(request, env);
   if (!access.ok) return json({ message: `Unauthorized: ${access.reason}` }, 401);
 
-  const sub = Array.isArray(params.path) ? params.path.join('/') : params.path || '';
+  let sub = Array.isArray(params.path) ? params.path.join('/') : params.path || '';
+  // Sveltia/Decap address a custom api_root as if it were a GitHub Enterprise
+  // host: REST calls come in under `api/v3/...` and GraphQL under `api/graphql`.
+  // Normalize back to github.com-style paths before routing.
+  if (sub.startsWith('api/v3/')) sub = sub.slice(7);
+  else if (sub === 'api/graphql') sub = 'graphql';
   const url = new URL(request.url);
 
   // Synthetic current user (app tokens can't hit /user).
