@@ -10,10 +10,11 @@ backend:
   branch: main
   # GitHub App proxy (Cloudflare Pages Functions) — editors log in via Cloudflare
   # Access (email OTP); the proxy commits as the bot. See docs/CMS-AUTH.md.
-  # Update the domain if it differs from the production site.
-  base_url: https://factor42media.com
+  # NOTE: origin must match where the site is served. Using the pages.dev preview
+  # URL for now; switch both to https://factor42media.com at cutover (Stage 5).
+  base_url: https://factor42-landing-page.pages.dev
   auth_endpoint: api/cms/auth
-  api_root: https://factor42media.com/api/cms/github
+  api_root: https://factor42-landing-page.pages.dev/api/cms/github
 
 # Uncomment for local editing without GitHub (Chromium browsers, "Work with Local Repository").
 # Only active on localhost; ignored in production.
