@@ -87,8 +87,7 @@ export async function onRequest(context) {
 
     return new Response(upstream.body, { status: upstream.status, headers: out });
   } catch (e) {
-    // TEMP (while wiring up): surface the real mint/proxy error instead of a bare 500.
     console.error('CMS proxy error', e);
-    return json({ message: 'proxy error', error: String(e), sub }, 500);
+    return json({ message: 'CMS proxy error' }, 502);
   }
 }
