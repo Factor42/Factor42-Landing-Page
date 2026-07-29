@@ -1,28 +1,31 @@
 ---
 title: "The DSP Consolidation That Didn't Happen: Why Agencies Are Still Managing Too Many Demand-Side Platforms"
-description: "DSP consolidation was supposed to happen by 2025. Instead agencies now manage 7.3 DSPs on average, up from 4.8 in 2022. Here's why the trend reversed."
-category: "Programmatic"
+description: DSP consolidation was supposed to happen by 2025. Instead agencies now manage 7.3 DSPs on average, up from 4.8 in 2022. Here's why the trend reversed.
+subtitle: ''
+category: Programmatic
+group: programmatic
+theme: sky
 date: 2025-12-05
 readMinutes: 9
-author: "Factor42 Research"
-heroGradient: "linear-gradient(135deg, #0f172a 0%, #1e40af 100%)"
-stats:
-  - value: "7.3"
-    label: "avg DSPs per agency"
-  - value: "CTV +Retail"
-    label: "added the most new platforms"
-  - value: "3 yrs"
-    label: "since consolidation was predicted"
+author: Factor42 Research
 draft: false
-theme: "sky"
-group: "programmatic"
-cardGradient: "linear-gradient(135deg,#0f172a,#1e40af)"
-tagColor: "#0284c7"
-tagBg: "rgba(2,132,199,.1)"
-cardStat: "DSP Landscape 2026"
+cardStat: DSP Landscape 2026
+cardStatLabel: ''
+stats:
+  - value: '7.3'
+    label: avg DSPs per agency
+  - value: CTV +Retail
+    label: added the most new platforms
+  - value: 3 yrs
+    label: since consolidation was predicted
 featured: false
+featuredStat: ''
+featuredStatLabel: ''
+heroGradient: 'linear-gradient(135deg, #0f172a 0%, #1e40af 100%)'
+cardGradient: linear-gradient(135deg,#0f172a,#1e40af)
+tagColor: '#0284c7'
+tagBg: rgba(2,132,199,.1)
 ---
-
 In 2022 and 2023, the narrative in programmatic circles was confident: DSP consolidation was coming. The argument was reasonable — buyers would rationalize their platform portfolios, routing the majority of programmatic spend through one or two primary DSPs that offered superior data, reach, and technology. The fragmentation of the early programmatic era would give way to a more manageable, efficient structure. Industry analysts predicted that the number of DSPs an average agency actively managed would decline meaningfully by 2025.
 
 It didn't happen. In 2026, the average agency is managing **7.3 active DSPs**, up from approximately 4.8 in 2022. The consolidation prediction wasn't just wrong — the trend moved in the opposite direction. Understanding why matters for anyone trying to build sustainable operations in the current programmatic environment.
@@ -33,7 +36,7 @@ The prediction assumed that buyers would choose between existing DSPs — that t
 
 The introduction of CTV as a major ad channel brought with it a cluster of purpose-built or CTV-specialized DSPs. While The Trade Desk and DV360 both buy CTV inventory, agencies found that certain CTV-native DSPs offered superior access to specific streaming publishers, better frequency management tools for the medium, or unique programmatic guarantee capabilities. Rather than replacing an existing DSP, CTV buying often added a new one.
 
-Retail media compounded the problem more severely. Amazon DSP was already in most agency portfolios before retail media became a priority category. But Walmart DSP, Kroger Precision Marketing, Target Roundel's programmatic offering, and a growing number of retailer-owned programmatic products each came with their own buying interface and often required direct seat relationships. These are not the same category as open-market DSPs — they're walled gardens with proprietary first-party data — but they require the same kind of seat management and trafficking expertise.
+Retail media compounded the problem more severely. Amazon DSP was already in most agency portfolios before retail media became a priority category. But Walmart DSP, Kroger Precision Marketing, Target Roundel's programmatic offering, and a growing number of retailer-owned programmatic products each came with their own buying interface and often required direct seat relationships. These are not in the same category as open-market DSPs — they're walled gardens with proprietary first-party data — but they require the same kind of seat management and trafficking expertise.
 
 DOOH and programmatic audio added further fragmentation at the margin. Each channel brought its own preferred or purpose-built DSPs, and agencies serving clients who wanted full-channel coverage had no choice but to add seats.
 
